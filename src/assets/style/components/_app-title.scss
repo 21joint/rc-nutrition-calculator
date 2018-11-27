@@ -1,0 +1,13 @@
+.app-title {
+  margin-bottom: $spacing--vert--xl;
+  text-align: center;
+  h2 {
+    margin-bottom: 12px;
+    font-weight: $weight--sans--bold;
+    font-size: 13px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: $spacing--relaxed;
+    color: $color--text--light;
+  }
+}

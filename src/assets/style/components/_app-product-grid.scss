@@ -1,0 +1,76 @@
+.product-grid {
+    @include flex-display;
+    @include flex-justify-content(center);
+    @include flex-wrap(wrap);
+    margin-bottom: $spacing--vert--lg;
+    .product {
+        @include flex(0, 1, 100%);
+        @include transition();
+        @include shadow--block();
+        margin-bottom: $spacing--vert--xs;
+        padding: 48px 24px;
+        text-align: center;
+        text-decoration: none;
+        background-color: $color--white;
+        box-shadow: 0 2px 26px -10px fade-out($color--black, 0.92);
+        border-radius: $radius--md;
+
+        @include breakpoint(xs) {
+            @include flex(0, 1, 40%);
+            max-width: 302px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 2px 26px -5px fade-out($color--black, 0.7);
+        }
+
+        .product__img {
+            min-height: 190px;
+            margin-bottom: $spacing--vert--sm;
+        }
+
+        .product__title {
+            font-size: 18px;
+            line-height: 1.2222; // 22
+        }
+    }
+
+    // Selected product states
+    #product--peanut.selected {
+        color: $color--product--peanut;
+        // border-color: fade-out($color--product--peanut, 0.7);
+        box-shadow: 0 2px 30px 0 fade-out($color--product--peanut, 0.6),
+                    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+    }
+
+    #product--peas.selected {
+        color: $color--product--peas;
+        // border-color: fade-out($color--product--peas, 0.7);
+        box-shadow: 0 2px 30px 0 fade-out($color--product--peas, 0.6),
+                    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+    }
+
+    #product--whey.selected {
+        color: $color--product--whey;
+        // border-color: fade-out($color--product--whey, 0.7);
+        box-shadow: 0 2px 30px 0 fade-out($color--product--whey, 0.6),
+                    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+    }
+
+    #product--cocoa.selected {
+        color: $color--product--cocoa;
+        // border-color: fade-out($color--product--cocoa, 0.7);
+        box-shadow: 0 2px 30px 0 fade-out($color--product--cocoa, 0.6),
+                    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+    }
+
+    #product--oat.selected {
+        color: $color--product--oat;
+        // border-color: fade-out($color--product--oat, 0.7);
+        box-shadow: 0 2px 30px 0 fade-out($color--product--oat, 0.6),
+                    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+    }
+}

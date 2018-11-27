@@ -1,0 +1,30 @@
+/*
+** Media Query Utils
+*/
+
+// Breakpoints
+@mixin breakpoint($class) {
+    @if $class == xs {
+        @media (min-width: 600px) { @content; }
+    }
+
+    @else if $class == sm {
+        @media (min-width: 860px) { @content; }
+    }
+
+    @else if $class == md {
+        @media (min-width: 1021px) { @content; }
+    }
+
+    @else if $class == lg {
+        @media (min-width: 1260px) { @content; }
+    }
+
+    @else if $class == xl {
+        @media (min-width: 1380px) { @content; }
+    }
+
+    @else {
+        @warn "Breakpoint mixin supports: xs, sm, md, lg, xl";
+    }
+}

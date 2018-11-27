@@ -1,0 +1,55 @@
+// Show panels based on current app-progress data attribute value
+.app-section {
+  //display: none;
+  &.app-section--on {
+    display: block;
+  }
+}
+
+[data-app-progress="0"] [data-app-section="0"] {
+  display: block;
+}
+
+[data-app-progress="1"] [data-app-section="1"] {
+  display: block;
+}
+
+[data-app-progress="2"] [data-app-section="2"] {
+  display: block;
+}
+
+[data-app-progress="3"] [data-app-section="3"] {
+  display: block;
+}
+
+.app-loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  z-index: 100;
+
+  :not(.app-is--loading) & {
+    display: none;
+  }
+}
+
+// Loading styles
+.app-loading-container {
+  @include transition();
+  text-align: center;
+
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    color: $color--brand--primary;
+  }
+}

@@ -1,0 +1,143 @@
+// Progress bar states (helper mixin)
+@mixin set-progress-active-state {
+  button {
+    color: $color--white;
+    background-color: $color--brand--primary;
+  }
+  &:before {
+    right: -24px;
+    border-left: 22px solid $color--brand--primary--dark;
+  }
+
+  &:after {
+    border-left: 22px solid $color--brand--primary;
+  }
+}
+
+.app-mixins {
+  .app-mixins-title {
+    margin: 36px 0;
+
+    h3 {
+      text-align: center;
+    }
+  }
+
+  // Mixin groups controls (liquids, fats, sweeteners)
+  .app-mixins-controls {
+    @include flex-display();
+    @include flex-direction(column);
+    @include flex-align-items(center);
+    @include flex-wrap(wrap);
+
+    @include breakpoint(sm) {
+      @include flex-direction(row);
+      @include flex-justify-content(space-between);
+      @include flex-align-items(flex-start);
+    }
+
+    .mixins-controls-group {
+      @include flex(1, 1, 100%);
+      width: 80%;
+      margin: 0 auto $spacing--vert--xl auto;
+      text-align: center;
+
+      @include breakpoint(sm) {
+        @include flex(0, 1, 26%);
+        width: auto;
+      }
+    }
+
+    .mixins-controls-header {
+      margin-bottom: $spacing--vert--md;
+
+      h4 {
+        margin-bottom: $spacing--vert--md;
+      }
+    }
+
+    .mixins-controls-header__img {
+      display: inline-block;
+      width: 84px;
+      height: 84px;
+      margin-bottom: $spacing--vert--md;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .mixins-controls-group--liquids .mixins-controls-header__img {
+      background-image: url("/images/icons/icon-liquids.png");
+    }
+
+    .mixins-controls-group--fats .mixins-controls-header__img {
+      background-image: url("/images/icons/icon-fats.png");
+    }
+
+    .mixins-controls-group--sweeteners .mixins-controls-header__img {
+      background-image: url("/images/icons/icon-sweeteners.png");
+    }
+
+    // Mixins ingredients lists
+    .mixins-ingredients-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+
+      li {
+        display: block;
+        margin-bottom: 1px;
+        padding: 16px 18px;
+        background-color: $color--white;
+        border-radius: $radius--sm;
+
+        &:before {
+          content: "+";
+          margin-right: 12px;
+          color: $color--text--lighter;
+        }
+      }
+    }
+  }
+
+  // CTA / # of servings
+  .app-mixins-cta {
+    @include flex-display();
+    @include flex-justify-content(center);
+
+    .app-mixins-cta-block {
+      @include shadow--block();
+      display: inline-block;
+      padding: 30px;
+      text-align: center;
+      background-color: $color--white;
+
+      @include breakpoint(sm) {
+        padding: 36px 48px;
+      }
+    }
+
+    .servings-form {
+      margin-bottom: $spacing--vert--md;
+
+      span {
+        display: block;
+        margin-bottom: 12px;
+
+        @include breakpoint(sm) {
+          display: inline-block;
+          margin: 0;
+        }
+      }
+
+      input {
+        margin-bottom: 12px;
+
+        @include breakpoint(sm) {
+          margin: 0 12px;
+        }
+      }
+    }
+  }
+}

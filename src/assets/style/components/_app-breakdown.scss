@@ -1,0 +1,201 @@
+.app-breakdown {
+  @include shadow--block();
+  margin: 30px 0 $spacing--vert--xs 0;
+  border-radius: $radius--md;
+  background-color: $color--white;
+
+  .app-breakdown__main {
+    padding: 30px;
+
+    @include breakpoint(sm) {
+      padding: 48px;
+    }
+  }
+
+  // Prodcut image
+  .app-breakdown__product-img-wrap {
+    margin-top: -150px;
+    text-align: center;
+  }
+
+  .app-breakdown__product-img {
+    display: inline-block;
+    width: 160px;
+    height: 190px;
+    margin-bottom: $spacing--vert--md;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &.app-breakdown--peanut .app-breakdown__product-img {
+    background-image: url('/public/images/mixes/mix-peanut.png');
+  }
+
+  // Titles
+  .app-breakdown__titles {
+    text-align: center;
+
+    .h1 {
+      margin-bottom: $spacing--vert--sm;
+    }
+
+    .breakdown-mixins-description {
+      margin-bottom: $spacing--vert--sm;
+      font-size: 18px;
+      line-height: 24px;
+      color: $color--text--light;
+    }
+
+    .breakdown-servings {
+      margin-bottom: $spacing--vert--md;
+      font-weight: $weight--sans--bold;
+      font-size: 13px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: $spacing--wide;
+      color: $color--text--lighter;
+    }
+  }
+
+  // Toggle
+  .app-breakdown__toggle {
+    position: relative;
+    margin-bottom: $spacing--vert--md;
+    text-align: center;
+
+    &:after {
+      content: '';
+      display: none;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      top: 19px;
+      background-color: $color--trim--light;
+
+      @include breakpoint(xs) {
+        display: block;
+      }
+    }
+
+    .toggle {
+      position: relative;
+      z-index: 1;
+      display: block;
+      overflow: hidden;
+      font-size: 0; // inline-block whitespace
+      color: $color--text--light;
+      border-radius: $radius--lg;
+      background-color: $color--white;
+      box-shadow: inset 0px 0px 0px 2px $color--trim--light;
+
+      @include breakpoint(xs) {
+        display: inline-block;
+        border-radius: 24px;
+      }
+    }
+
+    .toggle-control {
+      display: block;
+      padding: 14px 30px;
+      font-weight: $weight--sans--bold;
+      font-size: 13px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: $spacing--wide;
+      cursor: pointer;
+
+      @include breakpoint(xs) {
+        display: inline-block;
+      }
+
+      &[data-app-toggle-active] {
+        cursor: default;
+        color: $color--white;
+        background-color: $color--brand--primary;
+      }
+    }
+  }
+
+  // Share bar
+  .app-breakdown__share {
+    @include flex-display();
+    @include flex-align-items(center);
+    @include flex-justify-content(center);
+    @include flex-wrap(wrap);
+    padding: 30px;
+    text-align: center;
+    background-color: $color--brand--primary;
+
+    @include breakpoint(sm) {
+      @include flex-justify-content(space-around);
+      padding: 36px 48px;
+      text-align: left;
+    }
+
+    h4 {
+      @include flex(1, 0, 100%);
+      margin-bottom: 30px;
+      font-weight: $weight--sans--bold;
+      font-size: 13px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: $spacing--wide;
+      color: $color--white;
+
+      @include breakpoint(sm) {
+        @include flex(0, 1, auto);
+        margin: 0;
+      }
+    }
+
+    .form--share {
+      @include flex(1, 0, 100%);
+
+      @include breakpoint(sm) {
+        @include flex(0, 1, auto);
+      }
+    }
+
+    input {
+      width: 100%;
+      margin: 0 0 12px 0;
+      padding: 15px 18px;
+      font-size: 16px;
+      line-height: 1;
+      text-align: center;
+      color: $color--white;
+      border: 1px solid $color--white;
+      background-color: transparent;
+
+      @include placeholder {
+        color: fade-out($color--white, 0.4);
+      }
+
+      @include breakpoint(sm) {
+        width: auto;
+        min-width: 260px;
+        margin: 0 12px 0 0;
+        text-align: left;
+      }
+    }
+
+    .button {
+      width: 100%;
+      padding: 17px 30px 18px 30px;
+      font-weight: $weight--sans--bold;
+      font-size: 13px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: $spacing--wide;
+      color: $color--brand--primary;
+      border-radius: 0;
+      border-color: $color--white;
+      background-color: $color--white;
+
+      @include breakpoint(sm) {
+        width: auto;
+      }
+    }
+  }
+}

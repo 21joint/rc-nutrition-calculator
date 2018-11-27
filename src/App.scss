@@ -1,0 +1,50 @@
+// Base
+@import "./assets/style/base/_reset";
+@import "./assets/style/base/_vars";
+@import "./assets/style/base/_utils";
+@import "./assets/style/base/_utils-flex";
+@import "./assets/style/base/_utils-media";
+@import "./assets/style/base/_type";
+// Layout
+@import "./assets/style/layout/_app-states";
+@import "./assets/style/layout/_main";
+// Elements
+@import "./assets/style/elements/_buttons";
+@import "./assets/style/elements/_inputs";
+@import "./assets/style/elements/_helpers";
+// Components
+@import "./assets/style/components/_app-breakdown";
+@import "./assets/style/components/_app-loading-ani";
+@import "./assets/style/components/_app-mixins";
+@import "./assets/style/components/_app-product-details";
+@import "./assets/style/components/_app-product-grid";
+@import "./assets/style/components/_app-product-nutrition";
+@import "./assets/style/components/_app-progress-bar";
+@import "./assets/style/components/_app-section-cta";
+@import "./assets/style/components/_app-title";
+
+.App {
+  text-align: center;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
