@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import _AppData from "../../data.json";
 
+const devMode = process.env.NODE_ENV !== "production";
+
 class ProductGrid extends Component {
     render() {
         return (
@@ -21,7 +23,7 @@ class ProductGrid extends Component {
                 </div>
                 <div className="app-section-cta">
                     <button type="button"
-                       className={"button " + (this.props.selectedProduct === null ? "disabled" : "")}>
+                            className={"button " + (this.props.selectedProduct === null ? "disabled" : "")}>
                         Continue to Mixins
                     </button>
                 </div>
@@ -39,7 +41,7 @@ class Product extends Component {
                 className={"product " + (this.props.isSelected() ? "selected" : "")}
             >
                 <div className="product__img">
-                    <img src={this.props.img} alt={this.props.title}/>
+                    <img src={(!devMode ? "/rc-nutrition-calculator" : "") + this.props.img} alt={this.props.title}/>
                 </div>
                 <div className="product__title">{this.props.title}</div>
             </article>
