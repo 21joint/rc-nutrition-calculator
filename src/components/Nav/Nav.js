@@ -30,7 +30,7 @@ class Nav extends Component {
                 </nav>
                 <div className="app-title">
                     <h2>
-                        Step {this.props.current}: {this.props.steps[this.props.current - 1].title}
+                        Step {this.props.currentStep}: {this.props.steps[this.props.currentStep - 1].title}
                         {
                             this.props.steps.map(step => step.active && step.id + ": " + step.title)
                         }

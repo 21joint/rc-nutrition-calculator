@@ -1,28 +1,28 @@
 input {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 16px;
-    line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 1;
 }
 
 input[type="number"] {
-    display: inline-block;
-    padding: 12px;
-    font-size: 17px;
-    line-height: 1;
-    text-align: center;
-    border-radius: $radius--md;
-    border: 1px solid $color--trim;
-    background-color: $color--white;
+  display: inline-block;
+  padding: 12px;
+  font-size: 17px;
+  line-height: 1;
+  text-align: center;
+  border-radius: $radius--md;
+  border: 1px solid $color--trim;
+  background-color: $color--white;
 }
 
 // Remove UI controls from number inputs
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    margin: 0;
-    -webkit-appearance: none;
+  margin: 0;
+  -webkit-appearance: none;
 }
 
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }

@@ -5,17 +5,14 @@
 @import "base/_utils-flex";
 @import "base/_utils-media";
 @import "base/_type";
-
 // Layout
 @import "layout/_app-states";
 @import "../../components/AppLoader/AppLoader";
 @import "layout/_main";
-
 // Elements
 @import "elements/_buttons";
 @import "elements/_inputs";
 @import "elements/_helpers";
-
 // Components
 @import "components/_app-breakdown";
 @import "components/_app-loading-ani";

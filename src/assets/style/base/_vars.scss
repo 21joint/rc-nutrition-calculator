@@ -1,48 +1,45 @@
-
-
 // Font Families
-$family--sans:                  'soleil', 'Helvetica Neue', 'Helvetica', sans-serif;
-$family--serif:                 serif;
+$family--sans: 'soleil', 'Helvetica Neue', 'Helvetica', sans-serif;
+$family--serif: serif;
 
 
-$weight--sans--light:           300;
-$weight--sans--regular:         400;
-$weight--sans--bold:            700;
+$weight--sans--light: 300;
+$weight--sans--regular: 400;
+$weight--sans--bold: 700;
 
 
-$spacing--tight:                -0.02em;
-$spacing--relaxed:              0.05em;
-$spacing--wide:                 0.1em;
+$spacing--tight: -0.02em;
+$spacing--relaxed: 0.05em;
+$spacing--wide: 0.1em;
 
 
 /*
 ** Corners
 */
 
-$radius--sm:                    2px;
-$radius--md:                    3px;
-$radius--lg:                    6px;
+$radius--sm: 2px;
+$radius--md: 3px;
+$radius--lg: 6px;
 
 /*
 ** Color: Descriptive
 */
 
-$color--white:                  #fff;
-$color--gray--offwhite:         #f3f3f3;
-$color--gray--lightest:         #e0dede;
-$color--gray--lighter:          #ddd;
-$color--gray--light:            #bbb;
-$color--gray:                   #8a8a8a;
-$color--gray--dark:             #444545;
-$color--black:                  #000;
+$color--white: #fff;
+$color--gray--offwhite: #f3f3f3;
+$color--gray--lightest: #e0dede;
+$color--gray--lighter: #ddd;
+$color--gray--light: #bbb;
+$color--gray: #8a8a8a;
+$color--gray--dark: #444545;
+$color--black: #000;
 
-$color--fire:                   #f05a5c;
-$color--fire--dark:             #cf4c4f;
-$color--aqua:                   #0ebdb9;
-$color--forest:                 #568c23;
-$color--eggplant:               #8d447e;
-$color--sunflower:              #ffbe00;
-
+$color--fire: #f05a5c;
+$color--fire--dark: #cf4c4f;
+$color--aqua: #0ebdb9;
+$color--forest: #568c23;
+$color--eggplant: #8d447e;
+$color--sunflower: #ffbe00;
 
 
 /*
@@ -51,33 +48,32 @@ $color--sunflower:              #ffbe00;
 
 
 // Brand
-$color--brand--primary:         $color--fire;
-$color--brand--primary--dark:   $color--fire--dark;
+$color--brand--primary: $color--fire;
+$color--brand--primary--dark: $color--fire--dark;
 
 
 // Text
-$color--text--lighter:          $color--gray--light;
-$color--text--light:            $color--gray;
-$color--text:                   $color--gray--dark;
+$color--text--lighter: $color--gray--light;
+$color--text--light: $color--gray;
+$color--text: $color--gray--dark;
 
-$color--text--disabled:         $color--gray--light;
+$color--text--disabled: $color--gray--light;
 
 
 // BG / trim
-$color--bg--canvas:             $color--gray--offwhite;
-$color--bg--disabled:           $color--gray--lightest;
+$color--bg--canvas: $color--gray--offwhite;
+$color--bg--disabled: $color--gray--lightest;
 
-$color--trim:                   $color--gray--lighter;
-$color--trim--light:            $color--gray--offwhite;
-
+$color--trim: $color--gray--lighter;
+$color--trim--light: $color--gray--offwhite;
 
 
 // Product Colors
-$color--product--peanut:        $color--eggplant;
-$color--product--peas:          $color--forest;
-$color--product--whey:          $color--aqua;
-$color--product--cocoa:         $color--fire;
-$color--product--oat:           $color--sunflower;
+$color--product--peanut: $color--eggplant;
+$color--product--peas: $color--forest;
+$color--product--whey: $color--aqua;
+$color--product--cocoa: $color--fire;
+$color--product--oat: $color--sunflower;
 
 
 // Status colors
@@ -89,13 +85,13 @@ $color--product--oat:           $color--sunflower;
 
 
 // Vertical grid
-$spacing--vert--xxs:            8px;
-$spacing--vert--xs:             12px;
-$spacing--vert--sm:             22px;
-$spacing--vert--md:             30px;
-$spacing--vert--lg:             48px;
-$spacing--vert--xl:             60px;
-$spacing--vert--xxl:            84px;
+$spacing--vert--xxs: 8px;
+$spacing--vert--xs: 3px;
+$spacing--vert--sm: 22px;
+$spacing--vert--md: 30px;
+$spacing--vert--lg: 48px;
+$spacing--vert--xl: 60px;
+$spacing--vert--xxl: 84px;
 
 
 

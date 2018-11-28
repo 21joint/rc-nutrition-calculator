@@ -1,40 +1,40 @@
 @mixin shadow--block {
-    box-shadow: 0 2px 26px -10px fade-out($color--black, 0.92);
+  box-shadow: 0 2px 26px -10px fade-out($color--black, 0.92);
 }
 
 
 @mixin transition {
-    transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 
 // For nested mixin w/ @content directive
 @mixin optional-at-root($sel) {
-    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
-        @content;
-    }
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
 }
 
 
 // Placeholder
 @mixin placeholder {
-    @include optional-at-root('::-webkit-input-placeholder') {
-        @content;
-    }
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
 
-    @include optional-at-root(':-moz-placeholder') {
-        @content;
-    }
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
 
-    @include optional-at-root('::-moz-placeholder') {
-        @content;
-    }
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
 
-    @include optional-at-root(':-ms-input-placeholder') {
-        @content;
-    }
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
 
-    @include optional-at-root(':placeholder') {
-        @content;
-    }
+  @include optional-at-root(':placeholder') {
+    @content;
+  }
 }
