@@ -1,3 +1,3 @@
-import AppContent from "./AppLoader.js";
+import AppContent from "./AppLoader.jsx";
 
 export default AppContent;

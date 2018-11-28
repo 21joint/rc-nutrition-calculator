@@ -14,16 +14,16 @@ class ProductGrid extends Component {
                                 title={product.title}
                                 img={product.img}
                                 onSelect={() => this.props.onSelect(product)}
-                                isSelected={this.props.isSelected(product)}
+                                isSelected={() => this.props.isSelected(product)}
                             />
                         );
                     })}
                 </div>
                 <div className="app-section-cta">
-                    <a href={"/#step2"}
+                    <button type="button"
                        className={"button " + (this.props.selectedProduct === null ? "disabled" : "")}>
                         Continue to Mixins
-                    </a>
+                    </button>
                 </div>
             </div>
         );
@@ -36,7 +36,7 @@ class Product extends Component {
             <article
                 onClick={this.props.onSelect}
                 id={"product--" + this.props.id}
-                className={"product " + (this.props.isSelected ? "selected" : "")}
+                className={"product " + (this.props.isSelected() ? "selected" : "")}
             >
                 <div className="product__img">
                     <img src={this.props.img} alt={this.props.title}/>

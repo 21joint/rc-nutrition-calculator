@@ -4,31 +4,71 @@
       "id": "peanut",
       "title": "PB & Jelly Get in My Belly",
       "img": "/images/mixes/mix-peanut.png",
-      "shop_url": "https://proteinbarmix.com/products/protein-bar-mix"
+      "shop_url": "https://proteinbarmix.com/products/protein-bar-mix",
+      "stats": {
+        "cals": 160,
+        "fats": 8,
+        "total_carbs": 14,
+        "fiber": 3,
+        "sugar": 2,
+        "protein": 12
+      }
     },
     {
       "id": "peas",
       "title": "Peas, Love, & Cocoa",
       "img": "/images/mixes/mix-peas.png",
-      "shop_url": "https://proteinbarmix.com/products/vegan-protein-bar-mix-peas-love-chocolate"
+      "shop_url": "https://proteinbarmix.com/products/vegan-protein-bar-mix-peas-love-chocolate",
+      "stats": {
+        "cals": 250,
+        "fats": 11,
+        "total_carbs": 11,
+        "fiber": 6,
+        "sugar": 2,
+        "protein": 12
+      }
     },
     {
       "id": "whey",
       "title": "Whey Hip Chocolate Chip",
       "img": "/images/mixes/mix-whey.png",
-      "shop_url": "https://proteinbarmix.com/products/primal-protein-bar-mix-whey-hip-chocolate-chip"
+      "shop_url": "https://proteinbarmix.com/products/primal-protein-bar-mix-whey-hip-chocolate-chip",
+      "stats": {
+        "cals": 240,
+        "fats": 11,
+        "total_carbs": 9,
+        "fiber": 4,
+        "sugar": 3,
+        "protein": 14
+      }
     },
     {
       "id": "cocoa",
       "title": "Cocoa for Coconuts",
       "img": "/images/mixes/mix-cocoa.png",
-      "shop_url": "https://proteinbarmix.com//products/paleo-energy-bites-mix-cocoa-for-coconuts"
+      "shop_url": "https://proteinbarmix.com//products/paleo-energy-bites-mix-cocoa-for-coconuts",
+      "stats": {
+        "cals": 120,
+        "fats": 6,
+        "total_carbs": 5,
+        "fiber": 3,
+        "sugar": 1,
+        "protein": 7
+      }
     },
     {
       "id": "oat",
       "title": "Oat Yes! Chocolate Chip",
       "img": "/images/mixes/mix-oat.png",
-      "shop_url": "https://proteinbarmix.com/products/oats-energy-bar-mix-oat-yeah-chocolate-chip"
+      "shop_url": "https://proteinbarmix.com/products/oats-energy-bar-mix-oat-yeah-chocolate-chip",
+      "stats": {
+        "cals": 160,
+        "fats": 7,
+        "total_carbs": 12,
+        "fiber": 3,
+        "sugar": 2,
+        "protein": 6
+      }
     }
   ],
   "additions": [

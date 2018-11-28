@@ -2,7 +2,7 @@
   "name": "rc-nutrition-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://21joint.github.io/rc-nutrition-calculator",
+  "homepage": "https://21joint.github.io/rc-nutrition-calculator/",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@babel/plugin-proposal-class-properties": "7.1.0",
