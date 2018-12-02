@@ -1,3 +1,4 @@
+@import "../../assets/style/base/vars";
 .nav {
   margin-bottom: 15px;
   text-align: center;
@@ -9,10 +10,9 @@
   font-size: 36px;
   line-height: 1;
   margin: 0 15px;
-  opacity: .4;
+  opacity: 0.4;
   text-shadow: none;
-  transition: opacity 1s ease,
-  text-shadow 1s ease;
+  transition: opacity 1s ease, text-shadow 1s ease;
   will-change: opacity, text-shadow;
 }
 
@@ -20,4 +20,19 @@
   color: var(--blue);
   opacity: 1;
   text-shadow: 0 0px 8px;
+}
+
+.app-back--button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  border-color: transparent;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 52px;
+  align-items: center;
+  border: none;
+  color: $color--brand--primary;
 }

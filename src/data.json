@@ -71,227 +71,240 @@
       }
     }
   ],
-  "additions": [
+  "addons": {
+    "liquids": [
+      {
+        "title": "water",
+        "cals": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "sugars": 0,
+        "protein": 0
+      },
+      {
+        "title": "almond milk",
+        "cals": 110,
+        "fat": 9,
+        "carbs": 3,
+        "fiber": 2,
+        "sugars": 1,
+        "protein": 5
+      },
+      {
+        "title": "whole milk",
+        "cals": 160,
+        "fat": 9,
+        "carbs": 12,
+        "fiber": 0,
+        "sugars": 11,
+        "protein": 8
+      },
+      {
+        "title": "mashed bananas",
+        "cals": 200,
+        "fat": 0.75,
+        "carbs": 50,
+        "fiber": 6,
+        "sugars": 27,
+        "protein": 3
+      },
+      {
+        "title": "apple juice",
+        "cals": 101,
+        "fat": 0,
+        "carbs": 22,
+        "fiber": 0,
+        "sugars": 21,
+        "protein": 1
+      },
+      {
+        "title": "greek yogurt",
+        "cals": 220,
+        "fat": 12,
+        "carbs": 9,
+        "fiber": 1,
+        "sugars": 7,
+        "protein": 20
+      },
+      {
+        "title": "low-fat yogurt",
+        "cals": 154,
+        "fat": 3.8,
+        "carbs": 17,
+        "fiber": 0,
+        "sugars": 17,
+        "protein": 13
+      }
+    ],
+    "fats": [
+      {
+        "title": "almond butter",
+        "cals": 1521,
+        "fat": 144,
+        "carbs": 48,
+        "fiber": 24,
+        "sugars": 8,
+        "protein": 56
+      },
+      {
+        "title": "peanut butter",
+        "cals": 1680,
+        "fat": 128,
+        "carbs": 48,
+        "fiber": 16,
+        "sugars": 16,
+        "protein": 72
+      },
+      {
+        "title": "sunflower butter",
+        "cals": 1761,
+        "fat": 160,
+        "carbs": 40,
+        "fiber": 16,
+        "sugars": 8,
+        "protein": 56
+      },
+      {
+        "title": "sweetened nut butter",
+        "cals": 1439,
+        "fat": 112,
+        "carbs": 64,
+        "fiber": 24,
+        "sugars": 32,
+        "protein": 48
+      },
+      {
+        "title": "coconut oil",
+        "cals": 1945,
+        "fat": 216,
+        "carbs": 0,
+        "fiber": 0,
+        "sugars": 0,
+        "protein": 0
+      },
+      {
+        "title": "coconut butter",
+        "cals": 1761,
+        "fat": 160,
+        "carbs": 64,
+        "fiber": 32,
+        "sugars": 16,
+        "protein": 16
+      },
+      {
+        "title": "ghee",
+        "cals": 2160,
+        "fat": 240,
+        "carbs": 0,
+        "fiber": 0,
+        "sugars": 0,
+        "protein": 0
+      },
+      {
+        "title": "butter",
+        "cals": 1600,
+        "fat": 176,
+        "carbs": 0,
+        "fiber": 0,
+        "sugars": 0,
+        "protein": 0
+      }
+    ],
+    "sweeteners": [
+      {
+        "title": "agave",
+        "cals": 960,
+        "fat": 1,
+        "carbs": 256,
+        "fiber": 0,
+        "sugars": 256,
+        "protein": 0
+      },
+      {
+        "title": "honey",
+        "cals": 980,
+        "fat": 0,
+        "carbs": 279,
+        "fiber": 1,
+        "sugars": 278,
+        "protein": 1
+      },
+      {
+        "title": "maple",
+        "cals": 800,
+        "fat": 0,
+        "carbs": 192,
+        "fiber": 0,
+        "sugars": 192,
+        "protein": 0
+      },
+      {
+        "title": "coconut nectar",
+        "cals": 881,
+        "fat": 0,
+        "carbs": 208,
+        "fiber": 0,
+        "sugars": 208,
+        "protein": 0
+      },
+      {
+        "title": "date syrup",
+        "cals": 864,
+        "fat": 0,
+        "carbs": 224,
+        "fiber": 0,
+        "sugars": 208,
+        "protein": 0
+      },
+      {
+        "title": "molasses",
+        "cals": 977,
+        "fat": 0,
+        "carbs": 252,
+        "fiber": 0,
+        "sugars": 252,
+        "protein": 0
+      },
+      {
+        "title": "sugar-free syrup",
+        "cals": 120,
+        "fat": 0,
+        "carbs": 72,
+        "fiber": 24,
+        "sugars": 0,
+        "protein": 0
+      }
+    ]
+  },
+  "quantities": [
     {
-      "title": "water",
-      "type": "liquids",
-      "cals": 0,
-      "fat": 0,
-      "carbs": 0,
-      "fiber": 0,
-      "sugars": 0,
-      "protein": 0
+      "label": "1 cup",
+      "value": 1
     },
     {
-      "title": "almond milk",
-      "type": "liquids",
-      "cals": 110,
-      "fat": 9,
-      "carbs": 3,
-      "fiber": 2,
-      "sugars": 1,
-      "protein": 5
+      "label": "3/4 cup",
+      "value": 0.75
     },
     {
-      "title": "whole milk",
-      "type": "liquids",
-      "cals": 160,
-      "fat": 9,
-      "carbs": 12,
-      "fiber": 0,
-      "sugars": 11,
-      "protein": 8
+      "label": "2/3 cup",
+      "value": 0.6666666667
     },
     {
-      "title": "mashed bananas",
-      "type": "liquids",
-      "cals": 200,
-      "fat": 0.75,
-      "carbs": 50,
-      "fiber": 6,
-      "sugars": 27,
-      "protein": 3
+      "label": "1/2 cup",
+      "value": 0.5
     },
     {
-      "title": "apple juice",
-      "type": "liquids",
-      "cals": 101,
-      "fat": 0,
-      "carbs": 22,
-      "fiber": 0,
-      "sugars": 21,
-      "protein": 1
+      "label": "1/3 cup",
+      "value": 0.3333333333
     },
     {
-      "title": "greek yogurt",
-      "type": "liquids",
-      "cals": 220,
-      "fat": 12,
-      "carbs": 9,
-      "fiber": 1,
-      "sugars": 7,
-      "protein": 20
+      "label": "1/4 cup",
+      "value": 0.25
     },
     {
-      "title": "low-fat yogurt",
-      "type": "liquids",
-      "cals": 154,
-      "fat": 3.8,
-      "carbs": 17,
-      "fiber": 0,
-      "sugars": 17,
-      "protein": 13
-    },
-    {
-      "title": "almond butter",
-      "type": "healthy fats",
-      "cals": 1521,
-      "fat": 144,
-      "carbs": 48,
-      "fiber": 24,
-      "sugars": 8,
-      "protein": 56
-    },
-    {
-      "title": "peanut butter",
-      "type": "healthy fats",
-      "cals": 1680,
-      "fat": 128,
-      "carbs": 48,
-      "fiber": 16,
-      "sugars": 16,
-      "protein": 72
-    },
-    {
-      "title": "sunflower butter",
-      "type": "healthy fats",
-      "cals": 1761,
-      "fat": 160,
-      "carbs": 40,
-      "fiber": 16,
-      "sugars": 8,
-      "protein": 56
-    },
-    {
-      "title": "sweetened nut butter",
-      "type": "healthy fats",
-      "cals": 1439,
-      "fat": 112,
-      "carbs": 64,
-      "fiber": 24,
-      "sugars": 32,
-      "protein": 48
-    },
-    {
-      "title": "coconut oil",
-      "type": "healthy fats",
-      "cals": 1945,
-      "fat": 216,
-      "carbs": 0,
-      "fiber": 0,
-      "sugars": 0,
-      "protein": 0
-    },
-    {
-      "title": "coconut butter",
-      "type": "healthy fats",
-      "cals": 1761,
-      "fat": 160,
-      "carbs": 64,
-      "fiber": 32,
-      "sugars": 16,
-      "protein": 16
-    },
-    {
-      "title": "ghee",
-      "type": "healthy fats",
-      "cals": 2160,
-      "fat": 240,
-      "carbs": 0,
-      "fiber": 0,
-      "sugars": 0,
-      "protein": 0
-    },
-    {
-      "title": "butter",
-      "type": "healthy fats",
-      "cals": 1600,
-      "fat": 176,
-      "carbs": 0,
-      "fiber": 0,
-      "sugars": 0,
-      "protein": 0
-    },
-    {
-      "title": "agave",
-      "type": "syrups",
-      "cals": 960,
-      "fat": 1,
-      "carbs": 256,
-      "fiber": 0,
-      "sugars": 256,
-      "protein": 0
-    },
-    {
-      "title": "honey",
-      "type": "syrups",
-      "cals": 980,
-      "fat": 0,
-      "carbs": 279,
-      "fiber": 1,
-      "sugars": 278,
-      "protein": 1
-    },
-    {
-      "title": "maple",
-      "type": "syrups",
-      "cals": 800,
-      "fat": 0,
-      "carbs": 192,
-      "fiber": 0,
-      "sugars": 192,
-      "protein": 0
-    },
-    {
-      "title": "coconut nectar",
-      "type": "syrups",
-      "cals": 881,
-      "fat": 0,
-      "carbs": 208,
-      "fiber": 0,
-      "sugars": 208,
-      "protein": 0
-    },
-    {
-      "title": "date syrup",
-      "type": "syrups",
-      "cals": 864,
-      "fat": 0,
-      "carbs": 224,
-      "fiber": 0,
-      "sugars": 208,
-      "protein": 0
-    },
-    {
-      "title": "molasses",
-      "type": "syrups",
-      "cals": 977,
-      "fat": 0,
-      "carbs": 252,
-      "fiber": 0,
-      "sugars": 252,
-      "protein": 0
-    },
-    {
-      "title": "sugar-free syrup",
-      "type": "syrups",
-      "cals": 120,
-      "fat": 0,
-      "carbs": 72,
-      "fiber": 24,
-      "sugars": 0,
-      "protein": 0
+      "label": "2 Tbls",
+      "value": 0.125
     }
   ]
 }
-

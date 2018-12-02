@@ -6,7 +6,6 @@
   background-color: $color--white;
   width: 100%;
   position: relative;
-  z-index: 100;
   @include breakpoint(sm) {
     display: block;
   }
@@ -43,7 +42,6 @@
 
       &:before,
       &:after {
-        z-index: 1;
         content: "";
         display: block;
         position: absolute;

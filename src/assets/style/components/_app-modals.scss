@@ -1,0 +1,21 @@
+.app-modal {
+  font-family: $family--sans;
+}
+
+.app-modal--header {
+  position: relative;
+}
+.app-modal--img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+.app-modal--title {
+  font-size: 28px;
+  margin-bottom: 50px;
+}
+
+.app-modal--footer {
+  margin-top: 30px;
+}

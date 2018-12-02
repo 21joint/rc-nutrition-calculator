@@ -5,23 +5,6 @@
     display: block;
   }
 }
-
-[data-app-progress="0"] [data-app-section="0"] {
-  display: block;
-}
-
-[data-app-progress="1"] [data-app-section="1"] {
-  display: block;
-}
-
-[data-app-progress="2"] [data-app-section="2"] {
-  display: block;
-}
-
-[data-app-progress="3"] [data-app-section="3"] {
-  display: block;
-}
-
 .app-loader {
   position: fixed;
   left: 0;

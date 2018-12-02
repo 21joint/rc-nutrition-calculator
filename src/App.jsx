@@ -5,6 +5,9 @@ import AppLoader from "./components/AppLoader";
 import Step from "./components/Step";
 import Nav from "./components/Nav";
 import ProductGrid from "./components/ProductGrid";
+import MixinsControlGroup from "./components/MixinsControlGroup";
+import { addons as ADDONS, quantitites as QUANTITIES } from "./data.json";
+console.log(ADDONS);
 
 const devMode = process.env.NODE_ENV !== "production";
 const STEPS = [
@@ -14,12 +17,13 @@ const STEPS = [
 ];
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       loading: true,
       stats: {},
       currentStep: 1,
+      modalIsOpen: false,
       selected: {
         product: null,
         addons: []
@@ -27,33 +31,19 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        loading: false
-      });
-    });
-  }
-
   handleStepChange = stats => {
-    console.log(stats);
     this.setState({
       currentStep: stats.activeStep
     });
   };
-  isSelected = product => {
+  isProductSelected = product => {
     return (
       JSON.stringify(this.state.selected.product) === JSON.stringify(product)
     );
   };
 
-  onSelect = product => {
+  onProductSelect = product => {
     this.setState(state => {
-      const targetStep =
-        state.selected.product !== null
-          ? state.currentStep++
-          : state.currentStep--;
-
       return {
         selected: {
           product: state.selected.product !== null ? null : product
@@ -69,6 +59,18 @@ class App extends Component {
     }, 200);
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        loading: false
+      });
+    });
+  }
+
+  addAddon = (addon, type) => {
+    this.state.selected.addons[type].push(addon);
+  };
+
   render() {
     const StepsNav = (
       <Nav selectedProduct={this.state.selected.product} steps={STEPS} />
@@ -76,7 +78,7 @@ class App extends Component {
 
     const Step2 =
       this.state.selected.product !== null ? (
-        <section className="app-section-2">
+        <section>
           <div className="product-details">
             <div className="product-details__img">
               <img
@@ -137,47 +139,16 @@ class App extends Component {
               <h3>Now, Add Your Mixins</h3>
             </div>
             <div className="app-mixins-controls">
-              <div className="mixins-controls-group--liquids mixins-controls-group">
-                <div className="mixins-controls-header">
-                  <div className="mixins-controls-header__img" />
-                  <h4>Liquids</h4>
-                  <a href="/#step1" className="text-button">
-                    Edit
-                  </a>
-                </div>
-                <div className="mixins-controls-list">
-                  <a
-                    href="/#step2"
-                    className="visually-hidden button--add button--outline"
-                  >
-                    Add Liquids
-                  </a>
-                  <ul className="mixins-ingredients-list">
-                    <li>1 cup water</li>
-                    <li>1 tbsp. almond milk</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="mixins-controls-group--fats mixins-controls-group">
-                <div className="mixins-controls-header">
-                  <div className="mixins-controls-header__img" />
-                  <h4>Healthy Fats</h4>
-                  <a className="disabled text-button">Edit</a>
-                </div>
-                <div className="mixins-controls-list">
-                  <a className="button--add button--outline">Add Fats</a>
-                </div>
-              </div>
-              <div className="mixins-controls-group--sweeteners mixins-controls-group">
-                <div className="mixins-controls-header">
-                  <div className="mixins-controls-header__img" />
-                  <h4>Sweeteners</h4>
-                  <a className="disabled text-button">Edit</a>
-                </div>
-                <div className="mixins-controls-list">
-                  <a className="button--add button--outline">Add Sweeteners</a>
-                </div>
-              </div>
+              {Object.keys(ADDONS).map((addonType, i) => {
+                return (
+                  <MixinsControlGroup
+                    key={i}
+                    type={addonType}
+                    addAddon={this.addAddon}
+                    addonsAdded={this.state.selected.addons}
+                  />
+                );
+              })}
             </div>
             <div className="app-mixins-cta">
               <div className="app-mixins-cta-block">
@@ -195,7 +166,7 @@ class App extends Component {
         ""
       );
     return (
-      <div>
+      <div id="appContent">
         <AppLoader loading={this.state.loading} />
         <StepWizard
           nav={StepsNav}
@@ -204,13 +175,12 @@ class App extends Component {
         >
           <ProductGrid
             selectedProduct={this.state.selected.product}
-            onSelect={this.onSelect}
-            isSelected={this.isSelected}
+            onProductSelect={this.onProductSelect}
             stepHandler={this.props.goToStep}
           />
           <Step currentStep={this.state.currentStep}>{Step2}</Step>
           <Step currentStep={this.state.currentStep}>
-            <section className="app-section-3" data-app-section="3">
+            <section className="app-section-3">
               <div className="app-breakdown--peanut app-breakdown">
                 <div className="app-breakdown__main">
                   <div className="app-breakdown__product-img-wrap">

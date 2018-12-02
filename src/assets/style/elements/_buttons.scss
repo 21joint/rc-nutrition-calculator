@@ -40,9 +40,9 @@ button,
   position: relative;
   padding-right: 42px;
   text-align: left;
-
+  width: 100%;
   &:after {
-    content: '+';
+    content: "+";
     position: absolute;
     right: 22px;
   }
@@ -61,4 +61,11 @@ button,
     cursor: not-allowed;
     color: $color--text--disabled;
   }
+}
+
+.btn-add--row {
+  background-color: transparent;
+  border: none;
+  color: #d5d5d5;
+  padding: 10px 0;
 }

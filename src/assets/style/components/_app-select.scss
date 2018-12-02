@@ -1,0 +1,10 @@
+.app-select__indicator-separator {
+  display: none;
+}
+
+.app-select__control {
+  min-height: 50px;
+  &-is--focused {
+    min-height: 50px;
+  }
+}

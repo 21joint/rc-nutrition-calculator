@@ -4,10 +4,12 @@ import _AppData from "../../data.json";
 const devMode = process.env.NODE_ENV !== "production";
 
 class ProductGrid extends Component {
-  handleStep = product => {
-    console.log(this.state);
-    if (this.props.selectedProduct == product) {
-      this.props.goToStep(2);
+  isProductSelected = product => {
+    return this.props.selectedProduct == product;
+  };
+  onProductSelected = product => {
+    if (this.isProductSelected(product)) {
+      this.props.goToStep(this.props.currentStep + 1);
     }
   };
   render() {
@@ -17,15 +19,13 @@ class ProductGrid extends Component {
           {_AppData.products.map((product, key) => {
             return (
               <Product
+                product={product}
                 key={key}
-                id={product.id}
-                title={product.title}
-                img={product.img}
                 onSelect={() => {
-                  this.props.onSelect(product);
-                  this.handleStep();
+                  this.props.onProductSelect(product);
+                  this.onProductSelected();
                 }}
-                isSelected={this.props.isSelected(product)}
+                isProductSelected={this.isProductSelected}
               />
             );
           })}
@@ -37,19 +37,22 @@ class ProductGrid extends Component {
 
 class Product extends Component {
   render() {
+    const product = this.props.product;
     return (
       <article
         onClick={this.props.onSelect}
-        id={"product--" + this.props.id}
-        className={"product " + (this.props.isSelected ? "selected" : "")}
+        id={"product--" + product.id}
+        className={
+          "product " + (this.props.isProductSelected(product) ? "selected" : "")
+        }
       >
         <div className="product__img">
           <img
-            src={(!devMode ? "/rc-nutrition-calculator" : "") + this.props.img}
-            alt={this.props.title}
+            src={(!devMode ? "/rc-nutrition-calculator" : "") + product.img}
+            alt={product.title}
           />
         </div>
-        <div className="product__title">{this.props.title}</div>
+        <div className="product__title">{product.title}</div>
       </article>
     );
   }
