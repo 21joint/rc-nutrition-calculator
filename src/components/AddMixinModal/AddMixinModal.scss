@@ -1,0 +1,38 @@
+@import "../../assets/style/base/vars";
+.app-modal {
+    font-family: $family--sans;
+  }
+  
+  .app-modal--header {
+    position: relative;
+  }
+  .app-modal--img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+  .app-modal--title {
+    font-size: 28px;
+    margin-bottom: 50px;
+  }
+  
+  .app-modal--footer {
+    margin-top: 30px;
+  }
+  
+.app-modal--body {
+    > .row {
+        + .row {
+            margin-top: 10px;
+        }
+    }
+}
+
+.button-remove--addonrow {
+    background-color: transparent;
+    color: #999999;
+    border: none;
+    height: 100%;
+    padding: 10px;
+}

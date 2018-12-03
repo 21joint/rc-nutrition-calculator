@@ -1,7 +1,5 @@
 // Base
 @import "~bootstrap/scss/bootstrap-grid";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid";
 @import "./assets/style/base/_reset";
 @import "./assets/style/base/_vars";
 @import "./assets/style/base/_utils";
@@ -16,7 +14,6 @@
 @import "./assets/style/elements/_inputs";
 @import "./assets/style/elements/_helpers";
 // Components
-@import "./assets/style/components/_app-select";
 @import "./assets/style/components/_app-breakdown";
 @import "./assets/style/components/_app-loading-ani";
 @import "./assets/style/components/_app-mixins";
@@ -26,7 +23,7 @@
 @import "./assets/style/components/_app-progress-bar";
 @import "./assets/style/components/_app-section-cta";
 @import "./assets/style/components/_app-title";
-@import "./assets/style/components/_app-modals";
+@import "./assets/style/components/_app-select";
 
 .App {
   text-align: center;

@@ -3,8 +3,9 @@
 }
 
 .app-select__control {
-  min-height: 50px;
+  height: 50px;
+  padding: 6px 3px 6px 6px;
   &-is--focused {
-    min-height: 50px;
+    height: 50px;
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import "./AddMixinModal.scss";
 import Modal from "react-modal";
-import Select from "react-select";
-import { addons as ADDONS, quantities as QUANTITIES } from "../../data.json";
+import AddonRow from "../AddonRow";
 
 Modal.setAppElement("#root");
 
@@ -26,13 +26,47 @@ const customStyles = {
   }
 };
 
-class AddMixinModal extends Component {
-  render() {
-    let _addonsOfType = ADDONS[this.props.type];
-
-    for (let i = 0; i < _addonsOfType.length; i++) {
-      _addonsOfType[i].value = _addonsOfType[i].label = _addonsOfType[i].title;
+const initialState = {
+  addonRows: [
+    {
+      id: new Date().getTime(),
+      quantity: {
+        value: 1,
+        label: "1 cup"
+      },
+      addon: null
     }
+  ]
+};
+
+class AddMixinModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = initialState;
+  }
+
+  addNewAddonRow = row => {
+    this.setState(state => {
+      return {
+        addonRows: [...state.addonRows, row]
+      };
+    });
+  };
+
+  removeAddonRow = row => {
+    if (this.state.addonRows.length <= 1) {
+      return;
+    } else {
+      const filteredAddonRows = this.state.addonRows.filter(
+        r => r.id !== row.id
+      );
+      this.setState({
+        addonRows: filteredAddonRows
+      });
+    }
+  };
+
+  render() {
     return (
       <div>
         <Modal
@@ -44,15 +78,13 @@ class AddMixinModal extends Component {
         >
           <div className="app-modal">
             <div className="app-modal--header">
-              <h2
-                className="app-modal--title"
-                ref={subtitle => (this.subtitle = subtitle)}
-              >
+              <h2 className="app-modal--title">
                 Add{" "}
-                {this.props.type.replace(
-                  this.props.type.charAt(0),
-                  this.props.type.charAt(0).toUpperCase()
-                )}{" "}
+                {this.props.type &&
+                  this.props.type.replace(
+                    this.props.type.charAt(0),
+                    this.props.type.charAt(0).toUpperCase()
+                  )}{" "}
                 to Your Recipe
               </h2>
               <img
@@ -62,36 +94,18 @@ class AddMixinModal extends Component {
               />
             </div>
             <div className="app-modal--body">
-              {this.props.addonRows.map(r => {
+              {this.state.addonRows.map(row => {
                 return (
-                  <div className="row align-items-center">
-                    <div className="col-sm">
-                      <Select
-                        classNamePrefix="app-select"
-                        options={QUANTITIES}
-                        value={r.value}
-                        onChange={this.props.onSelectQuantity}
-                      />
-                    </div>
-                    <div className="col-sm-auto">of</div>
-                    <div className="col-sm">
-                      <Select
-                        row={r}
-                        onChange={this.props.onSelectAddon}
-                        classNamePrefix="app-select"
-                        options={_addonsOfType}
-                        placeholder={`Choose a ${this.props.type.slice(0, -1)}`}
-                      />
-                    </div>
-                    <div className="col-sm-auto">
-                      <button
-                        onClick={() => this.props.removeAddonRow(r)}
-                        className="button"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+                  <AddonRow
+                    key={row.id}
+                    row={row}
+                    type={this.props.type}
+                    selectedAddon={row.addon}
+                    selectedQuantity={row.quantity}
+                    removeAddonRow={() => this.removeAddonRow(row)}
+                    onSelectAddon={() => this.onSelectAddon(row)}
+                    onSelectQuantity={() => this.onSelectQuantity(row)}
+                  />
                 );
               })}
               <div className="row">
@@ -101,19 +115,20 @@ class AddMixinModal extends Component {
                     onClick={() => {
                       console.log(
                         "before adding length was ",
-                        this.props.addonRows.length
+                        this.state.addonRows.length
                       );
-                      this.props.addNewAddonRow({
+                      this.addNewAddonRow({
+                        id: new Date().getTime(),
                         quantity: {
                           value: 1,
                           label: "1 cup"
                         },
-                        addon: null,
-                        id: this.props.addonRows.length + 1
+                        addon: null
                       });
                     }}
                   >
-                    Add Another {this.props.type.slice(0, -1)} +
+                    Add Another{" "}
+                    {this.props.type && this.props.type.slice(0, -1)} +
                   </button>
                 </div>
               </div>
@@ -121,7 +136,18 @@ class AddMixinModal extends Component {
             <div className="app-modal--footer">
               <div className="row">
                 <div className="col-auto">
-                  <button className="button">Update Recipe</button>
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={() =>
+                      this.props.onSubmitMixin({
+                        type: this.props.type,
+                        rows: this.state.addonRows
+                      })
+                    }
+                  >
+                    Update Recipe
+                  </button>
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@ button,
   border-radius: $radius--md;
   border: 1px solid $color--brand--primary;
   background-color: $color--brand--primary;
-
+  font-family: inherit;
   &.disabled,
   &:disabled {
     cursor: not-allowed;

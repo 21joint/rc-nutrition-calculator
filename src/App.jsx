@@ -6,8 +6,8 @@ import Step from "./components/Step";
 import Nav from "./components/Nav";
 import ProductGrid from "./components/ProductGrid";
 import MixinsControlGroup from "./components/MixinsControlGroup";
-import { addons as ADDONS, quantitites as QUANTITIES } from "./data.json";
-console.log(ADDONS);
+import AddMixinModal from "./components/AddMixinModal";
+import { addons as ADDONS } from "./data.json";
 
 const devMode = process.env.NODE_ENV !== "production";
 const STEPS = [
@@ -23,13 +23,28 @@ class App extends Component {
       loading: true,
       stats: {},
       currentStep: 1,
-      modalIsOpen: false,
+      modal: {
+        open: false,
+        type: null
+      },
+      addons: [],
       selected: {
-        product: null,
-        addons: []
+        product: null
       }
     };
   }
+  openModal = type => {
+    this.setState({ modal: { open: true, type: type } });
+  };
+
+  afterOpenModal = () => {
+    // references are now sync'd and can be accessed.
+    // this.subtitle.style.fontSize = "28px";
+  };
+
+  closeModal = () => {
+    this.setState({ modal: { open: false, type: null } });
+  };
 
   handleStepChange = stats => {
     this.setState({
@@ -67,8 +82,22 @@ class App extends Component {
     });
   }
 
-  addAddon = (addon, type) => {
-    this.state.selected.addons[type].push(addon);
+  onSubmitMixin = ({ type, rows }) => {
+    let newAddon = {
+      type: type,
+      rows: rows
+    };
+    this.setState(state => {
+      return {
+        addons: [...state.addons, newAddon],
+        modal: {
+          open: false,
+          type: null
+        }
+      };
+    });
+
+    console.log(this.state.addons);
   };
 
   render() {
@@ -76,95 +105,106 @@ class App extends Component {
       <Nav selectedProduct={this.state.selected.product} steps={STEPS} />
     );
 
-    const Step2 =
-      this.state.selected.product !== null ? (
-        <section>
-          <div className="product-details">
-            <div className="product-details__img">
-              <img
-                src={
-                  (!devMode ? "/rc-nutrition-calculator" : "") +
-                  this.state.selected.product.img
-                }
-                alt={this.state.selected.product.title}
-              />
-            </div>
-            <div className="product-details__info">
-              <h2>
-                {this.state.selected.product.title}
-                <a href={this.state.selected.product.shop_url}>Shop Now</a>
-              </h2>
-              <div className="product-nutrition">
-                <div className="nutrition-item--cals nutrition-item">
-                  <div className="nutrition-item__label">Calories</div>
+    const Step2 = this.state.selected.product ? (
+      <section>
+        <div className="product-details">
+          <div className="product-details__img">
+            <img
+              src={
+                (!devMode ? "/rc-nutrition-calculator" : "") +
+                this.state.selected.product.img
+              }
+              alt={this.state.selected.product.title}
+            />
+          </div>
+          <div className="product-details__info">
+            <h2>
+              {this.state.selected.product.title}
+              <a href={this.state.selected.product.shop_url}>Shop Now</a>
+            </h2>
+            <div className="product-nutrition">
+              <div className="nutrition-item--cals nutrition-item">
+                <div className="nutrition-item__label">Calories</div>
+                <div className="nutrition-item__value">
+                  {this.state.selected.product.stats.cals}
+                </div>
+              </div>
+              <div className="nutrition-item--fats nutrition-item">
+                <div className="nutrition-item__label">Fats</div>
+                <div className="nutrition-item__value">
+                  {this.state.selected.product.stats.fats}
+                </div>
+              </div>
+              <div className="nutrition-item--carbs nutrition-item">
+                <div className="nutrition-item--carbs__total">
+                  <div className="nutrition-item__label">Total Carbs</div>
                   <div className="nutrition-item__value">
-                    {this.state.selected.product.stats.cals}
+                    {this.state.selected.product.stats.total_carbs}
                   </div>
                 </div>
-                <div className="nutrition-item--fats nutrition-item">
-                  <div className="nutrition-item__label">Fats</div>
-                  <div className="nutrition-item__value">
-                    {this.state.selected.product.stats.fats}
+                <div className="nutrition-item--carbs__breakdown">
+                  <div className="carbs-breakdown-item">
+                    {this.state.selected.product.stats.fiber}
+                    <span>G Fiber</span>
+                  </div>
+                  <div className="carbs-breakdown-item">
+                    {this.state.selected.product.stats.sugar}
+                    <span>G Sugars</span>
                   </div>
                 </div>
-                <div className="nutrition-item--carbs nutrition-item">
-                  <div className="nutrition-item--carbs__total">
-                    <div className="nutrition-item__label">Total Carbs</div>
-                    <div className="nutrition-item__value">
-                      {this.state.selected.product.stats.total_carbs}
-                    </div>
-                  </div>
-                  <div className="nutrition-item--carbs__breakdown">
-                    <div className="carbs-breakdown-item">
-                      {this.state.selected.product.stats.fiber}
-                      <span>G Fiber</span>
-                    </div>
-                    <div className="carbs-breakdown-item">
-                      {this.state.selected.product.stats.sugar}
-                      <span>G Sugars</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="nutrition-item--protein nutrition-item">
-                  <div className="nutrition-item__label">Protein</div>
-                  <div className="nutrition-item__value">
-                    {this.state.selected.product.stats.protein}
-                  </div>
+              </div>
+              <div className="nutrition-item--protein nutrition-item">
+                <div className="nutrition-item__label">Protein</div>
+                <div className="nutrition-item__value">
+                  {this.state.selected.product.stats.protein}
                 </div>
               </div>
             </div>
           </div>
-          <div className="app-mixins">
-            <div className="app-mixins-title">
-              <h3>Now, Add Your Mixins</h3>
-            </div>
-            <div className="app-mixins-controls">
-              {Object.keys(ADDONS).map((addonType, i) => {
-                return (
-                  <MixinsControlGroup
-                    key={i}
-                    type={addonType}
-                    addAddon={this.addAddon}
-                    addonsAdded={this.state.selected.addons}
-                  />
-                );
-              })}
-            </div>
-            <div className="app-mixins-cta">
-              <div className="app-mixins-cta-block">
-                <div className="servings-form">
-                  <span>Divided into</span>
-                  <input type="number" id="servings-input" min="0" max="40" />
-                  <span>bars / balls</span>
-                </div>
-                <button className="button">View Nutrition Breakdown</button>
+        </div>
+        <div className="app-mixins">
+          <div className="app-mixins-title">
+            <h3>Now, Add Your Mixins</h3>
+          </div>
+          <div className="app-mixins-controls">
+            {Object.keys(ADDONS).map((addonType, i) => {
+              return (
+                <MixinsControlGroup
+                  key={i}
+                  type={addonType}
+                  addAddon={this.addAddon}
+                  addonsAdded={this.state.addons.filter(
+                    addon => addon.type === addonType
+                  )}
+                  openModal={this.openModal}
+                />
+              );
+            })}
+            <AddMixinModal
+              openModal={this.openModal.bind(this)}
+              closeModal={this.closeModal.bind(this)}
+              type={this.state.modal.type}
+              modalIsOpen={this.state.modal.open}
+              addonRows={this.state.addonRows}
+              onSubmitMixin={this.onSubmitMixin}
+            />
+          </div>
+
+          <div className="app-mixins-cta">
+            <div className="app-mixins-cta-block">
+              <div className="servings-form">
+                <span>Divided into</span>
+                <input type="number" id="servings-input" min="0" max="40" />
+                <span>bars / balls</span>
               </div>
+              <button className="button">View Nutrition Breakdown</button>
             </div>
           </div>
-        </section>
-      ) : (
-        ""
-      );
+        </div>
+      </section>
+    ) : (
+      ""
+    );
     return (
       <div id="appContent">
         <AppLoader loading={this.state.loading} />
