@@ -25,7 +25,6 @@ class MixinsControlGroup extends Component {
               {this.props.addonsAdded.map(addon => {
                 if (addon.type == this.props.type)
                   return addon.rows.map(r => {
-                    console.log(r);
                     return (
                       <li key={addon.rows.indexOf(r)}>
                         {r.quantity.label} {r.label}
