@@ -26,46 +26,7 @@ const customStyles = {
   }
 };
 
-const initialState = {
-  addonRows: [
-    {
-      id: new Date().getTime(),
-      quantity: {
-        value: 1,
-        label: "1 cup"
-      },
-      addon: null
-    }
-  ]
-};
-
 class AddMixinModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = initialState;
-  }
-
-  addNewAddonRow = row => {
-    this.setState(state => {
-      return {
-        addonRows: [...state.addonRows, row]
-      };
-    });
-  };
-
-  removeAddonRow = row => {
-    if (this.state.addonRows.length <= 1) {
-      return;
-    } else {
-      const filteredAddonRows = this.state.addonRows.filter(
-        r => r.id !== row.id
-      );
-      this.setState({
-        addonRows: filteredAddonRows
-      });
-    }
-  };
-
   render() {
     return (
       <div>
@@ -94,38 +55,31 @@ class AddMixinModal extends Component {
               />
             </div>
             <div className="app-modal--body">
-              {this.state.addonRows.map(row => {
+              {this.props.modalAddons[this.props.type].map((r, key) => {
                 return (
                   <AddonRow
-                    key={row.id}
-                    row={row}
+                    id={key}
+                    key={key}
                     type={this.props.type}
-                    selectedAddon={row.addon}
-                    selectedQuantity={row.quantity}
-                    removeAddonRow={() => this.removeAddonRow(row)}
-                    onSelectAddon={() => this.onSelectAddon(row)}
-                    onSelectQuantity={() => this.onSelectQuantity(row)}
+                    selectedAddon={r.addon}
+                    selectedQuantity={r.quantity}
+                    removeAddonRow={this.props.removeAddonRow}
+                    onSelectQuantity={this.props.onSelectQuantity}
+                    onSelectAddon={this.props.onSelectAddon}
                   />
                 );
               })}
               <div className="row">
                 <div className="col-12">
                   <button
+                    type="button"
                     className="btn btn-add--row"
-                    onClick={() => {
-                      console.log(
-                        "before adding length was ",
-                        this.state.addonRows.length
-                      );
-                      this.addNewAddonRow({
-                        id: new Date().getTime(),
-                        quantity: {
-                          value: 1,
-                          label: "1 cup"
-                        },
-                        addon: null
-                      });
-                    }}
+                    onClick={() =>
+                      this.props.addNewAddonRow(
+                        this.props.type,
+                        this.props.modalAddons.length
+                      )
+                    }
                   >
                     Add Another{" "}
                     {this.props.type && this.props.type.slice(0, -1)} +
@@ -139,12 +93,7 @@ class AddMixinModal extends Component {
                   <button
                     className="button"
                     type="button"
-                    onClick={() =>
-                      this.props.onSubmitMixin({
-                        type: this.props.type,
-                        rows: this.state.addonRows
-                      })
-                    }
+                    onClick={() => this.props.onSubmitModal(this.props.type)}
                   >
                     Update Recipe
                   </button>

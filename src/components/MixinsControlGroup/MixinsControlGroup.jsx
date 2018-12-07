@@ -2,16 +2,16 @@ import React, { Component } from "react";
 
 class MixinsControlGroup extends Component {
   render() {
+    const _type = this.props.type;
+    const _modalAddons = this.props.modalAddons;
     return (
       <div
-        id={`mixinsCtrlGroup__${this.props.type}`}
-        className={`mixins-controls-group--${
-          this.props.type
-        } mixins-controls-group`}
+        id={`mixinsCtrlGroup__${_type}`}
+        className={`mixins-controls-group--${_type} mixins-controls-group`}
       >
         <div className="mixins-controls-header">
           <div className="mixins-controls-header__img" />
-          <h4>Healthy {this.props.type}</h4>
+          <h4>{_type}</h4>
           <button
             type="button"
             className="disabled text-button visually-hidden"
@@ -19,27 +19,20 @@ class MixinsControlGroup extends Component {
             Edit
           </button>
         </div>
-        {this.props.addonsAdded.length > 0 ? (
+        {_modalAddons.length > 1 ? (
           <div className="mixins-controls-list">
             <ul className="mixins-ingredients-list">
-              {this.props.addonsAdded.map(addon => {
-                if (addon.type == this.props.type)
-                  return addon.rows.map(r => {
-                    return (
-                      <li key={addon.rows.indexOf(r)}>
-                        {r.quantity.label} {r.label}
-                      </li>
-                    );
-                  });
+              {_modalAddons.map((row, key) => {
+                return <li key={key}>{JSON.stringify(row.addon)}</li>;
               })}
             </ul>
           </div>
         ) : (
           <button
             className="button--add button--outline"
-            onClick={() => this.props.openModal(this.props.type)}
+            onClick={() => this.props.openModal(_type)}
           >
-            Add {this.props.type}
+            Add {_type}
           </button>
         )}
       </div>
