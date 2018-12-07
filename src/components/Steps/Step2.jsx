@@ -90,8 +90,8 @@ export default class Step2 extends Component {
                 <MixinsControlGroup
                   key={key}
                   type={type}
-                  addAddon={this.addAddon}
                   modalAddons={this.props.modalAddons[type]}
+                  activeAddons={this.props.activeAddons[type]}
                   openModal={this.openModal.bind(this)}
                 />
               );
@@ -110,10 +110,7 @@ export default class Step2 extends Component {
                     onSelectAddon={this.props.onSelectAddon}
                     onSelectQuantity={this.props.onSelectQuantity}
                     addNewAddonRow={this.props.addNewAddonRow}
-                    onSubmitModal={() => {
-                      this.closeModal();
-                      return this.props.onSubmitModal;
-                    }}
+                    onSubmitModal={this.props.onSubmitModal}
                     removeAddonRow={this.props.removeAddonRow}
                   />
                 );

@@ -19,8 +19,7 @@ class App extends Component {
         {
           id: 1,
           quantity: allQuantities[0],
-          addon: null,
-          active: false
+          addon: null
         }
       ];
     });
@@ -125,13 +124,13 @@ class App extends Component {
     });
   };
 
-  onSubmitModal = (addons, type) => {
+  onSubmitModal = (type, addons) => {
     this.setState({
       loading: true
     });
     this.setState(state => {
       let newState = { ...state };
-      newState.activeAddons[type] = [...addons];
+      newState.activeAddons[type] = addons[type];
       return newState;
     });
 
@@ -147,6 +146,7 @@ class App extends Component {
         }
       };
     });
+    console.log(this.state);
   };
 
   render() {

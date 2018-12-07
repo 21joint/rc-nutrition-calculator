@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class MixinsControlGroup extends Component {
   render() {
     const _type = this.props.type;
-    const _modalAddons = this.props.modalAddons;
+    const _activeAddons = this.props.activeAddons;
 
     return (
       <div
@@ -20,10 +20,10 @@ class MixinsControlGroup extends Component {
             Edit
           </button>
         </div>
-        {_modalAddons.length > 1 ? (
+        {_activeAddons.length >= 1 ? (
           <div className="mixins-controls-list">
             <ul className="mixins-ingredients-list">
-              {_modalAddons.map((row, key) => {
+              {_activeAddons.map((row, key) => {
                 return <li key={key}>{JSON.stringify(row.addon)}</li>;
               })}
             </ul>
