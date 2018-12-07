@@ -135,8 +135,17 @@ class App extends Component {
       return newState;
     });
 
-    this.setState({
-      loading: false
+    this.setState(state => {
+      let newState = { ...state };
+
+      newState.loading = false;
+      return {
+        loading: false,
+        modal: {
+          open: false,
+          type: null
+        }
+      };
     });
   };
 
