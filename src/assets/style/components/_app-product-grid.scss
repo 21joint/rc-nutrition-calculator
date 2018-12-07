@@ -18,7 +18,7 @@
 
     @include breakpoint(xs) {
       @include flex(0, 1, 40%);
-      max-width: 290px;
+      max-width: 270px;
     }
 
     &:hover {
@@ -42,34 +42,34 @@
     color: $color--product--peanut;
     // border-color: fade-out($color--product--peanut, 0.7);
     box-shadow: 0 2px 30px 0 fade-out($color--product--peanut, 0.6),
-    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+      0 0 2px 0 fade-out($color--product--peanut, 0.7);
   }
 
   #product--peas.selected {
     color: $color--product--peas;
     // border-color: fade-out($color--product--peas, 0.7);
     box-shadow: 0 2px 30px 0 fade-out($color--product--peas, 0.6),
-    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+      0 0 2px 0 fade-out($color--product--peanut, 0.7);
   }
 
   #product--whey.selected {
     color: $color--product--whey;
     // border-color: fade-out($color--product--whey, 0.7);
     box-shadow: 0 2px 30px 0 fade-out($color--product--whey, 0.6),
-    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+      0 0 2px 0 fade-out($color--product--peanut, 0.7);
   }
 
   #product--cocoa.selected {
     color: $color--product--cocoa;
     // border-color: fade-out($color--product--cocoa, 0.7);
     box-shadow: 0 2px 30px 0 fade-out($color--product--cocoa, 0.6),
-    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+      0 0 2px 0 fade-out($color--product--peanut, 0.7);
   }
 
   #product--oat.selected {
     color: $color--product--oat;
     // border-color: fade-out($color--product--oat, 0.7);
     box-shadow: 0 2px 30px 0 fade-out($color--product--oat, 0.6),
-    0 0 2px 0 fade-out($color--product--peanut, 0.7);
+      0 0 2px 0 fade-out($color--product--peanut, 0.7);
   }
 }

@@ -23,6 +23,18 @@
     }
   }
 
+  .app-mixins-legend {
+    legend {
+      display: inline-block;
+      color: $color--gray--light;
+      background-color: $color--gray--lightest;
+      max-width: 290px;
+      margin: 0 auto 30px;
+      padding: 12px;
+      border-radius: $radius--md;
+    }
+  }
+
   // Mixin groups controls (liquids, fats, sweeteners)
   .app-mixins-controls {
     @include flex-display();
@@ -39,11 +51,20 @@
     .mixins-controls-group {
       word-break: break-all;
       @include flex(1, 1, 100%);
-      width: 80%;
       margin: 0 auto $spacing--vert--xl auto;
       text-align: center;
       padding: 0 15px;
-      max-width: 320px;
+      max-width: 300px;
+      position: relative;
+      & + .mixins-controls-group:before {
+        content: "+";
+        position: absolute;
+        left: -50px;
+        top: 50%;
+        transform: translate(0, -100%);
+        font-size: 40px;
+        color: $color--gray--light;
+      }
       &.required {
         h4 {
           &:after {
@@ -68,25 +89,21 @@
 
     .mixins-controls-header__img {
       display: inline-block;
-      width: 84px;
       height: 84px;
       margin-bottom: $spacing--vert--md;
-      background-color: transparent;
-      background-repeat: no-repeat;
-      background-position: center center;
     }
 
-    .mixins-controls-group--liquids .mixins-controls-header__img {
-      background-image: url("/images/icons/icon-liquids.png");
-    }
+    // .mixins-controls-group--liquids .mixins-controls-header__img {
+    //   background-image: url("/images/icons/icon-liquids.png");
+    // }
 
-    .mixins-controls-group--fats .mixins-controls-header__img {
-      background-image: url("/images/icons/icon-fats.png");
-    }
+    // .mixins-controls-group--fats .mixins-controls-header__img {
+    //   background-image: url("/images/icons/icon-fats.png");
+    // }
 
-    .mixins-controls-group--sweeteners .mixins-controls-header__img {
-      background-image: url("/images/icons/icon-sweeteners.png");
-    }
+    // .mixins-controls-group--sweeteners .mixins-controls-header__img {
+    //   background-image: url("/images/icons/icon-sweeteners.png");
+    // }
 
     // Mixins ingredients lists
     .mixins-ingredients-list {

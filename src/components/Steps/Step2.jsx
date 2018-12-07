@@ -118,7 +118,9 @@ export default class Step2 extends Component {
               }
             })()}
           </div>
-
+          <div className="app-mixins-legend text-center">
+            <legend>Select at least one liquid to proceed </legend>
+          </div>
           <div className="app-mixins-cta">
             <div className="app-mixins-cta-block">
               <div className="servings-form">

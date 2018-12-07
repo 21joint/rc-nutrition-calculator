@@ -13,9 +13,13 @@ class MixinsControlGroup extends Component {
         ) > -1 && "required"}`}
       >
         <div className="mixins-controls-header">
-          <div className="mixins-controls-header__img" />
+          <img
+            src={`/images/icons/icon-${_type}.png`}
+            className="mixins-controls-header__img"
+          />
           <h4>{_type}</h4>
           <button
+            onClick={() => this.props.openModal(_type)}
             type="button"
             className={`text-button ${
               _activeAddons.length < 1 ? "disabled" : ""
@@ -28,7 +32,11 @@ class MixinsControlGroup extends Component {
           <div className="mixins-controls-list">
             <ul className="mixins-ingredients-list">
               {_activeAddons.map((row, key) => {
-                return <li key={key}>{JSON.stringify(row.addon)}</li>;
+                return (
+                  <li key={key}>
+                    {row.quantity.label} {row.addon.label}
+                  </li>
+                );
               })}
             </ul>
           </div>
