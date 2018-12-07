@@ -74,12 +74,7 @@ class AddMixinModal extends Component {
                   <button
                     type="button"
                     className="btn btn-add--row"
-                    onClick={() =>
-                      this.props.addNewAddonRow(
-                        this.props.type,
-                        this.props.modalAddons.length
-                      )
-                    }
+                    onClick={() => this.props.addNewAddonRow(this.props.type)}
                   >
                     Add Another{" "}
                     {this.props.type && this.props.type.slice(0, -1)} +
@@ -93,7 +88,12 @@ class AddMixinModal extends Component {
                   <button
                     className="button"
                     type="button"
-                    onClick={() => this.props.onSubmitModal(this.props.type)}
+                    onClick={() =>
+                      this.props.onSubmitModal(
+                        this.props.type,
+                        this.props.modalAddons
+                      )
+                    }
                   >
                     Update Recipe
                   </button>

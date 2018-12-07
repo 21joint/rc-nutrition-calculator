@@ -103,15 +103,16 @@ class App extends Component {
     });
   };
 
-  addNewAddonRow = (type, key) => {
+  addNewAddonRow = type => {
     this.setState(state => {
+      const key = state.modalAddons.length;
       let newState = { ...state };
-      newState.modalAddons[type][key] = {
+      newState.modalAddons[type].push({
         id: key,
         quantity: allQuantities[0],
         addon: null,
         active: false
-      };
+      });
       return newState;
     });
   };
@@ -124,12 +125,18 @@ class App extends Component {
     });
   };
 
-  onSubmitModal = type => {
+  onSubmitModal = (addons, type) => {
+    this.setState({
+      loading: true
+    });
     this.setState(state => {
-      let appliedAddons = state.modalAddons[type];
-      return {
-        modalAddons: appliedAddons
-      };
+      let newState = { ...state };
+      newState.activeAddons[type] = [...addons];
+      return newState;
+    });
+
+    this.setState({
+      loading: false
     });
   };
 

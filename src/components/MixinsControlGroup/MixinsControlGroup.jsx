@@ -4,6 +4,7 @@ class MixinsControlGroup extends Component {
   render() {
     const _type = this.props.type;
     const _modalAddons = this.props.modalAddons;
+    console.log(_modalAddons);
     return (
       <div
         id={`mixinsCtrlGroup__${_type}`}

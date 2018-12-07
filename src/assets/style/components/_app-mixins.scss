@@ -37,14 +37,15 @@
     }
 
     .mixins-controls-group {
+      word-break: break-all;
       @include flex(1, 1, 100%);
       width: 80%;
       margin: 0 auto $spacing--vert--xl auto;
       text-align: center;
-
+      padding: 0 15px;
       @include breakpoint(sm) {
-        @include flex(0, 1, 26%);
-        width: auto;
+        @include flex(0, 1, auto);
+        width: 33.33333333%;
       }
     }
 
