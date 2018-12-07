@@ -91,7 +91,8 @@ class AddMixinModal extends Component {
                     onClick={() =>
                       this.props.onSubmitModal(
                         this.props.type,
-                        this.props.modalAddons
+                        this.props.modalAddons,
+                        this.props.closeModal
                       )
                     }
                   >

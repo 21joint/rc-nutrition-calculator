@@ -3,7 +3,7 @@
   @include flex-display();
   @include flex-direction(column);
   @include flex-align-items(center);
-  // @include flex-justify-content(center);
+  @include flex-justify-content(center);
 
   @include breakpoint(xs) {
     @include flex-direction(row);
@@ -54,7 +54,7 @@
   .nutrition-item--protein {
     .nutrition-item__value {
       &:after {
-        content: 'g';
+        content: "g";
         display: inline-block;
         margin-left: 8px;
         font-size: 13px;
@@ -70,7 +70,7 @@
     color: $color--text;
 
     &:before {
-      content: '–';
+      content: "–";
       display: inline-block;
       margin-right: 12px;
       font-size: 20px;

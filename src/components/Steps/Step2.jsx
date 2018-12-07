@@ -110,6 +110,7 @@ export default class Step2 extends Component {
                     onSelectAddon={this.props.onSelectAddon}
                     onSelectQuantity={this.props.onSelectQuantity}
                     addNewAddonRow={this.props.addNewAddonRow}
+                    removeAddonRow={this.props.removeAddonRow}
                     onSubmitModal={this.props.onSubmitModal}
                     removeAddonRow={this.props.removeAddonRow}
                   />

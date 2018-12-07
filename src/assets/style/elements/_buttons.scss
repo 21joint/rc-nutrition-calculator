@@ -54,12 +54,16 @@ button,
   text-transform: uppercase;
   letter-spacing: $spacing--wide;
   text-decoration: none;
+  background: transparent !important;
+  border-color: transparent !important;
   color: $color--brand--primary;
-
   &.disabled {
     pointer-events: none;
     cursor: not-allowed;
     color: $color--text--disabled;
+  }
+  &:not(.disabled):hover {
+    border-color: $color--brand--primary !important;
   }
 }
 

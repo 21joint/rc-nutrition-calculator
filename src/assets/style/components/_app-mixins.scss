@@ -43,6 +43,15 @@
       margin: 0 auto $spacing--vert--xl auto;
       text-align: center;
       padding: 0 15px;
+      max-width: 320px;
+      &.required {
+        h4 {
+          &:after {
+            content: "*";
+            color: red;
+          }
+        }
+      }
       @include breakpoint(sm) {
         @include flex(0, 1, auto);
         width: 33.33333333%;

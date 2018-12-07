@@ -8,14 +8,18 @@ class MixinsControlGroup extends Component {
     return (
       <div
         id={`mixinsCtrlGroup__${_type}`}
-        className={`mixins-controls-group--${_type} mixins-controls-group`}
+        className={`mixins-controls-group--${_type} mixins-controls-group ${_type.indexOf(
+          "liquids"
+        ) > -1 && "required"}`}
       >
         <div className="mixins-controls-header">
           <div className="mixins-controls-header__img" />
           <h4>{_type}</h4>
           <button
             type="button"
-            className="disabled text-button visually-hidden"
+            className={`text-button ${
+              _activeAddons.length < 1 ? "disabled" : ""
+            }`}
           >
             Edit
           </button>

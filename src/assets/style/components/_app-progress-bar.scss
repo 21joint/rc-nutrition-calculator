@@ -17,7 +17,6 @@
     font-size: 13px;
     line-height: 1;
     letter-spacing: $spacing--relaxed;
-
     li {
       @include flex(1, 1, 33.3333%);
       position: relative;
@@ -50,6 +49,7 @@
         height: 0;
         border-top: 31px solid transparent;
         border-bottom: 31px solid transparent;
+        z-index: 1;
       }
 
       &:before {

@@ -1,17 +1,14 @@
 // Font Families
-$family--sans: 'soleil', 'Helvetica Neue', 'Helvetica', sans-serif;
+$family--sans: "soleil", "Helvetica Neue", "Helvetica", sans-serif;
 $family--serif: serif;
-
 
 $weight--sans--light: 300;
 $weight--sans--regular: 400;
 $weight--sans--bold: 700;
 
-
 $spacing--tight: -0.02em;
 $spacing--relaxed: 0.05em;
 $spacing--wide: 0.1em;
-
 
 /*
 ** Corners
@@ -41,16 +38,13 @@ $color--forest: #568c23;
 $color--eggplant: #8d447e;
 $color--sunflower: #ffbe00;
 
-
 /*
 ** Color: Functional
 */
 
-
 // Brand
 $color--brand--primary: $color--fire;
 $color--brand--primary--dark: $color--fire--dark;
-
 
 // Text
 $color--text--lighter: $color--gray--light;
@@ -59,14 +53,12 @@ $color--text: $color--gray--dark;
 
 $color--text--disabled: $color--gray--light;
 
-
 // BG / trim
 $color--bg--canvas: $color--gray--offwhite;
 $color--bg--disabled: $color--gray--lightest;
 
 $color--trim: $color--gray--lighter;
 $color--trim--light: $color--gray--offwhite;
-
 
 // Product Colors
 $color--product--peanut: $color--eggplant;
@@ -75,24 +67,17 @@ $color--product--whey: $color--aqua;
 $color--product--cocoa: $color--fire;
 $color--product--oat: $color--sunflower;
 
-
 // Status colors
-
 
 /*
 ** Layout
 */
 
-
 // Vertical grid
 $spacing--vert--xxs: 8px;
-$spacing--vert--xs: 3px;
+$spacing--vert--xs: 6px;
 $spacing--vert--sm: 22px;
 $spacing--vert--md: 30px;
 $spacing--vert--lg: 48px;
 $spacing--vert--xl: 60px;
 $spacing--vert--xxl: 84px;
-
-
-
-

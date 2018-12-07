@@ -11,7 +11,7 @@ class AddonRow extends Component {
     const id = this.props.id;
     const addonsForType = allAddons[type];
     return (
-      <div className={`row row-${this.props.id} align-items-center`}>
+      <div className={`row row-${id} align-items-center`}>
         <div className="col-sm">
           <Select
             classNamePrefix="app-select"
@@ -21,7 +21,7 @@ class AddonRow extends Component {
             placeholder={"Select Quantity"}
           />
         </div>
-        <div className="col-sm-auto">of</div>
+        <div className="col-sm-auto p-0">of</div>
         <div className="col-sm">
           <Select
             classNamePrefix="app-select"
@@ -33,7 +33,7 @@ class AddonRow extends Component {
         </div>
         <div className="col-sm-auto p-0">
           <button
-            onClick={this.props.removeAddonRow}
+            onClick={() => this.props.removeAddonRow(type, id)}
             className="button button-remove--addonrow"
           >
             <svg

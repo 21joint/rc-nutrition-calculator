@@ -117,14 +117,15 @@ class App extends Component {
   };
 
   removeAddonRow = (type, key) => {
-    this.setState(state => {
-      let newState = { ...state };
-      delete newState.modalAddons[type][key];
-      return newState;
-    });
+    if (this.state.modalAddons[type].length - 1 > 0)
+      this.setState(state => {
+        let newState = { ...state };
+        delete newState.modalAddons[type][key];
+        return newState;
+      });
   };
 
-  onSubmitModal = (type, addons) => {
+  onSubmitModal = (type, addons, callback) => {
     this.setState({
       loading: true
     });
@@ -134,19 +135,21 @@ class App extends Component {
       return newState;
     });
 
-    this.setState(state => {
-      let newState = { ...state };
-
-      newState.loading = false;
-      return {
-        loading: false,
-        modal: {
-          open: false,
-          type: null
-        }
-      };
-    });
-    console.log(this.state);
+    setTimeout(() => {
+      this.setState(state => {
+        let newState = { ...state };
+        newState.loading = false;
+        return {
+          loading: false,
+          modal: {
+            open: false,
+            type: null
+          }
+        };
+      });
+      console.log(this.state);
+      if (typeof callback === "function") callback();
+    }, 100);
   };
 
   render() {
@@ -181,6 +184,7 @@ class App extends Component {
             modalAddons={this.state.modalAddons}
             activeAddons={this.state.activeAddons}
             addNewAddonRow={this.addNewAddonRow}
+            removeAddonRow={this.removeAddonRow}
           />
           <Steps.Step3
             currentStep={this.state.currentStep}
