@@ -73,18 +73,23 @@ class App extends Component {
 
   isProductSelected = product => {
     return (
-      JSON.stringify(this.state.selected.product) === JSON.stringify(product)
+      JSON.stringify(this.state.selected.product) == JSON.stringify(product)
     );
   };
 
-  onProductSelect = product => {
-    this.setState(state => {
-      return {
+  onProductSelect = (product, cb) => {
+    this.setState(
+      {
         selected: {
-          product: state.selected.product !== product ? product : null
+          product: this.isProductSelected(product) ? null : product
         }
-      };
-    });
+      },
+      function() {
+        if (this.state.selected.product !== null) {
+          cb(this.state.currentStep + 1);
+        }
+      }
+    );
   };
 
   onSelectQuantity = (type, id) => value => {

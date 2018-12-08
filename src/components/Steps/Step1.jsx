@@ -11,12 +11,9 @@ export default class Step2 extends Component {
     this.title = props.title;
   }
   isProductSelected = product => {
-    return this.props.selectedProduct == product;
-  };
-  onProductSelected = product => {
-    if (this.isProductSelected(product)) {
-      this.props.goToStep(this.props.currentStep + 1);
-    }
+    return (
+      JSON.stringify(this.props.selectedProduct) === JSON.stringify(product)
+    );
   };
 
   render() {
@@ -27,8 +24,7 @@ export default class Step2 extends Component {
             <article
               key={key}
               onClick={() => {
-                this.props.onProductSelect(product);
-                this.onProductSelected();
+                this.props.onProductSelect(product, this.props.goToStep);
               }}
               id={"product--" + product.id}
               className={`product ${
