@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/rc-nutrition-calculator/static/js/runtime~main.10722dd5.js"
   },
   {
-    "revision": "bc5afffe790d2d8417e8",
-    "url": "/rc-nutrition-calculator/static/js/main.bc5afffe.chunk.js"
+    "revision": "4d744a7a3f34dcb57ed5",
+    "url": "/rc-nutrition-calculator/static/js/main.4d744a7a.chunk.js"
   },
   {
     "revision": "26080d2458708f9aae58",
     "url": "/rc-nutrition-calculator/static/js/1.26080d24.chunk.js"
   },
   {
-    "revision": "bc5afffe790d2d8417e8",
+    "revision": "4d744a7a3f34dcb57ed5",
     "url": "/rc-nutrition-calculator/static/css/main.6db4d3c4.chunk.css"
   },
   {
-    "revision": "23e766e7f51bf9adb9f2385ae8702af6",
+    "revision": "f91f8a9418c9ab101d8691bcd0ae9211",
     "url": "/rc-nutrition-calculator/index.html"
   }
 ];
