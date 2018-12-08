@@ -13,14 +13,6 @@ class App extends Component {
     super();
     let activeAddons = {};
     let modalAddons = {};
-    let finalStats = {
-      cals: 0,
-      fats: 0,
-      total_carbs: 0,
-      fiber: 0,
-      sugar: 0,
-      protein: 0
-    };
     Object.keys(allAddons).map((type, key) => {
       activeAddons[type] = [];
       modalAddons[type] = [
@@ -45,7 +37,14 @@ class App extends Component {
         product: null
       },
       dividedBy: 12,
-      finalStats
+      finalStats: {
+        cals: 0,
+        fats: 0,
+        carbs: 0,
+        fiber: 0,
+        sugar: 0,
+        protein: 0
+      }
     };
   }
 
@@ -83,16 +82,9 @@ class App extends Component {
       return {
         selected: {
           product: state.selected.product !== product ? product : null
-        },
-        loading: true
+        }
       };
     });
-
-    setTimeout(() => {
-      this.setState({
-        loading: false
-      });
-    }, 200);
   };
 
   onSelectQuantity = (type, id) => value => {
@@ -166,12 +158,14 @@ class App extends Component {
     const productStats = product.stats;
     const activeAddons = this.state.activeAddons;
 
-    log.blue(`Product Stats => ${JSON.stringify(productStats)}`);
-    log.blue(`Active Addons => ${JSON.stringify(activeAddons)}`);
+    log.blue(`Product Stats -- \n ${JSON.stringify(productStats)}`);
+    log.blue(`Active Addons -- \n ${JSON.stringify(activeAddons)}`);
 
     Object.keys(productStats).map(type => {
       this.setState(state => {
         let newState = { ...state };
+        //log.yellow(type, newState.finalStats[type]);
+        log.green(parseInt(productStats[type], 10));
         newState.finalStats[type] += parseInt(productStats[type], 10);
         return newState;
       });

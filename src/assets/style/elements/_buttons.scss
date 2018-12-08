@@ -22,7 +22,7 @@ button,
 .button--outline {
   @include transition();
   display: block;
-  padding: 14px 28px;
+  padding: 16px 28px;
   font-weight: $weight--sans--bold;
   font-size: 14px;
   text-transform: uppercase;

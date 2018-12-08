@@ -57,7 +57,7 @@ export default class Step2 extends Component {
                 <div className="nutrition-item--carbs__total">
                   <div className="nutrition-item__label">Total Carbs</div>
                   <div className="nutrition-item__value">
-                    {selectedProduct.stats.total_carbs}
+                    {selectedProduct.stats.carbs}
                   </div>
                 </div>
                 <div className="nutrition-item--carbs__breakdown">
