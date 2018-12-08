@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import MixinsControlGroup from "../MixinsControlGroup";
 import AddMixinModal from "../AddMixinModal";
 
+const baseUrl = !devMode ? "/" + packageName : "";
+
 export default class Step2 extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,10 @@ export default class Step2 extends Component {
       <section>
         <div className="product-details">
           <div className="product-details__img">
-            <img src={selectedProduct.img} alt={selectedProduct.title} />
+            <img
+              src={baseUrl + selectedProduct.img}
+              alt={selectedProduct.title}
+            />
           </div>
           <div className="product-details__info">
             <h2>
