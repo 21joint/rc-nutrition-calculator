@@ -14,7 +14,8 @@ class MixinsControlGroup extends Component {
       >
         <div className="mixins-controls-header">
           <img
-            src={`/images/icons/icon-${_type}.png`}
+            src={`${!!this.props.baseUrl &&
+              this.props.baseUrl}/images/icons/icon-${_type}.png`}
             className="mixins-controls-header__img"
             alt={_type}
           />
