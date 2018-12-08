@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/rc-nutrition-calculator/precache-manifest.268624dfeacb427192dec9144a249974.js"
+  "/rc-nutrition-calculator/precache-manifest.e3cc14ae85ecab3500e08a9cb88f9c0a.js"
 );
 
 workbox.clientsClaim();
