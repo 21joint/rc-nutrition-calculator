@@ -100,7 +100,7 @@ export default class Step2 extends Component {
                   modalAddons={this.props.modalAddons[type]}
                   activeAddons={this.props.activeAddons[type]}
                   openModal={this.openModal.bind(this)}
-                  baseUrl={!devMode ? this.props.baseUrl : ""}
+                  baseUrl={!devMode ? baseUrl : ""}
                 />
               );
             })}
