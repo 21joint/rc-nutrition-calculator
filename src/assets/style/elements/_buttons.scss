@@ -4,7 +4,6 @@ button,
   display: inline-block;
   padding: 16px 28px;
   font-size: 17px;
-  line-height: 1;
   text-decoration: none;
   color: $color--white;
   border-radius: $radius--md;
@@ -23,10 +22,9 @@ button,
 .button--outline {
   @include transition();
   display: block;
-  padding: 14px 22px;
+  padding: 14px 28px;
   font-weight: $weight--sans--bold;
   font-size: 14px;
-  line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: $spacing--wide;
@@ -34,6 +32,10 @@ button,
   border-radius: $radius--md;
   border: 1px solid $color--brand--primary;
   background-color: transparent;
+  &--gray {
+    border-color: $color--gray--light;
+    color: $color--gray--light;
+  }
 }
 
 .button--add {

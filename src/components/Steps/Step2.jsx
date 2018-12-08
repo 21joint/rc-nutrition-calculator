@@ -135,7 +135,15 @@ export default class Step2 extends Component {
                 />
                 <span>bars / balls</span>
               </div>
-              <button className="button">View Nutrition Breakdown</button>
+              <button
+                className="button"
+                onClick={() => {
+                  console.log(this.props1);
+                  this.props.onViewBreakdown();
+                }}
+              >
+                View Nutrition Breakdown
+              </button>
             </div>
           </div>
         </div>

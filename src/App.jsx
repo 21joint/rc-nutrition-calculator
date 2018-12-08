@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import StepWizard from "react-step-wizard";
 import "./App.scss";
-
 import AppLoader from "./components/AppLoader";
 import Steps from "./components/Steps";
 import Nav from "./components/Nav";
@@ -152,6 +151,31 @@ class App extends Component {
     }, 100);
   };
 
+  onViewBreakdown = () => {
+    this.FinalCalculation();
+  };
+  FinalCalculation = () => {
+    let res = {};
+    const product = this.state.selected.product;
+    const productStats = product.stats;
+    const activeAddons = this.state.activeAddons;
+    console.info(`Selected Product => ${JSON.stringify(product)}`);
+    console.info(`Product Stats => ${JSON.stringify(productStats)}`);
+    console.info(`Active Addons => ${JSON.stringify(activeAddons)}`);
+
+    Object.keys(productStats).map(type => {
+      res[type] = productStats[type];
+    });
+
+    Object.keys(activeAddons).map(type => {
+      activeAddons[type].map(t => {
+        console.log(t);
+      });
+    });
+
+    console.log(res);
+    return res;
+  };
   render() {
     return (
       <div id="appContent">
@@ -185,6 +209,7 @@ class App extends Component {
             activeAddons={this.state.activeAddons}
             addNewAddonRow={this.addNewAddonRow}
             removeAddonRow={this.removeAddonRow}
+            onViewBreakdown={this.onViewBreakdown}
           />
           <Steps.Step3
             currentStep={this.state.currentStep}

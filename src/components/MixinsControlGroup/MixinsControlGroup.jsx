@@ -34,7 +34,8 @@ class MixinsControlGroup extends Component {
               {_activeAddons.map((row, key) => {
                 return (
                   <li key={key}>
-                    {row.quantity.label} {row.addon.label}
+                    {row.quantity.label ? row.quantity.label : ""}{" "}
+                    {row.addon && row.addon.label}
                   </li>
                 );
               })}

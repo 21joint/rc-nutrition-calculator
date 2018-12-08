@@ -27,6 +27,9 @@ const customStyles = {
 };
 
 class AddMixinModal extends Component {
+  onModalCancel = () => {
+    this.props.closeModal();
+  };
   render() {
     return (
       <div>
@@ -97,6 +100,15 @@ class AddMixinModal extends Component {
                     }
                   >
                     Update Recipe
+                  </button>
+                </div>
+                <div className="col-auto">
+                  <button
+                    className="button button--outline button--outline--gray"
+                    type="button"
+                    onClick={this.onModalCancel}
+                  >
+                    Cancel
                   </button>
                 </div>
               </div>

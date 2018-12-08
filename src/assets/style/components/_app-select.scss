@@ -5,6 +5,7 @@
 .app-select__control {
   height: 50px;
   padding: 6px 3px 6px 6px;
+  border-radius: $radius--md;
   &-is--focused {
     height: 50px;
   }
