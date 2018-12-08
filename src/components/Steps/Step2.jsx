@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import MixinsControlGroup from "../MixinsControlGroup";
 import AddMixinModal from "../AddMixinModal";
+import { name as packageName } from "../../../package.json";
 
+const devMode = process.env.NODE_ENV !== "production";
 const baseUrl = !devMode ? "/" + packageName : "";
 
 export default class Step2 extends Component {
