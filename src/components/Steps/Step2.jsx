@@ -146,6 +146,10 @@ export default class Step2 extends Component {
               <button
                 type="button"
                 className="button"
+                disabled={
+                  this.props.activeAddons[this.props.requiredMixin.title]
+                    .length < this.props.requiredMixin.min
+                }
                 onClick={() => {
                   this.props.onViewBreakdown();
                 }}

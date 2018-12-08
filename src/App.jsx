@@ -115,8 +115,7 @@ class App extends Component {
       newState.modalAddons[type].push({
         id: key,
         quantity: allQuantities[0],
-        addon: null,
-        active: false
+        addon: null
       });
       return newState;
     });
@@ -226,6 +225,7 @@ class App extends Component {
             addNewAddonRow={this.addNewAddonRow}
             removeAddonRow={this.removeAddonRow}
             onViewBreakdown={this.onViewBreakdown}
+            requiredMixin={{ title: "liquids", min: 1 }}
           />
           <Steps.Step3
             currentStep={this.state.currentStep}

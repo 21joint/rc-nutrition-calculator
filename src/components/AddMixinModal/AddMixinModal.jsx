@@ -78,10 +78,14 @@ class AddMixinModal extends Component {
                 <div className="col-12">
                   <button
                     type="button"
-                    className="btn btn-add--row"
+                    className={`btn btn-add--row ${
+                      this.props.modalAddons[this.props.type].length < 3
+                        ? ""
+                        : "visually-hidden"
+                    }`}
                     onClick={() => this.props.addNewAddonRow(this.props.type)}
                   >
-                    Add Another{" "}
+                    Add another{" "}
                     {this.props.type && this.props.type.slice(0, -1)} +
                   </button>
                 </div>
