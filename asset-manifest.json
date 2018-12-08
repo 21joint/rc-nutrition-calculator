@@ -1,13 +1,13 @@
 {
   "main.css": "/rc-nutrition-calculator/static/css/main.6db4d3c4.chunk.css",
-  "main.js": "/rc-nutrition-calculator/static/js/main.cdffe402.chunk.js",
-  "main.js.map": "/rc-nutrition-calculator/static/js/main.cdffe402.chunk.js.map",
+  "main.js": "/rc-nutrition-calculator/static/js/main.e6ca45a6.chunk.js",
+  "main.js.map": "/rc-nutrition-calculator/static/js/main.e6ca45a6.chunk.js.map",
   "static/js/1.26080d24.chunk.js": "/rc-nutrition-calculator/static/js/1.26080d24.chunk.js",
   "static/js/1.26080d24.chunk.js.map": "/rc-nutrition-calculator/static/js/1.26080d24.chunk.js.map",
   "runtime~main.js": "/rc-nutrition-calculator/static/js/runtime~main.10722dd5.js",
   "runtime~main.js.map": "/rc-nutrition-calculator/static/js/runtime~main.10722dd5.js.map",
   "static/css/main.6db4d3c4.chunk.css.map": "/rc-nutrition-calculator/static/css/main.6db4d3c4.chunk.css.map",
   "index.html": "/rc-nutrition-calculator/index.html",
-  "precache-manifest.cf6f360ed8fc60cc9bd58cdb70efff22.js": "/rc-nutrition-calculator/precache-manifest.cf6f360ed8fc60cc9bd58cdb70efff22.js",
+  "precache-manifest.81aa1a2e86864ec6a76530d8e929ca84.js": "/rc-nutrition-calculator/precache-manifest.81aa1a2e86864ec6a76530d8e929ca84.js",
   "service-worker.js": "/rc-nutrition-calculator/service-worker.js"
 }
