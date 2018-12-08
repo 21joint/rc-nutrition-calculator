@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import log from "console.pretty";
 import StepWizard from "react-step-wizard";
 import "./App.scss";
 import AppLoader from "./components/AppLoader";
@@ -12,6 +13,14 @@ class App extends Component {
     super();
     let activeAddons = {};
     let modalAddons = {};
+    let finalStats = {
+      cals: 0,
+      fats: 0,
+      total_carbs: 0,
+      fiber: 0,
+      sugar: 0,
+      protein: 0
+    };
     Object.keys(allAddons).map((type, key) => {
       activeAddons[type] = [];
       modalAddons[type] = [
@@ -35,7 +44,8 @@ class App extends Component {
       selected: {
         product: null
       },
-      dividedBy: 12
+      dividedBy: 12,
+      finalStats
     };
   }
 
@@ -72,7 +82,7 @@ class App extends Component {
     this.setState(state => {
       return {
         selected: {
-          product: state.selected.product !== null ? null : product
+          product: state.selected.product !== product ? product : null
         },
         loading: true
       };
@@ -151,30 +161,36 @@ class App extends Component {
     }, 100);
   };
 
-  onViewBreakdown = () => {
-    this.FinalCalculation();
-  };
   FinalCalculation = () => {
-    let res = {};
     const product = this.state.selected.product;
     const productStats = product.stats;
     const activeAddons = this.state.activeAddons;
-    console.info(`Selected Product => ${JSON.stringify(product)}`);
-    console.info(`Product Stats => ${JSON.stringify(productStats)}`);
-    console.info(`Active Addons => ${JSON.stringify(activeAddons)}`);
+
+    log.blue(`Product Stats => ${JSON.stringify(productStats)}`);
+    log.blue(`Active Addons => ${JSON.stringify(activeAddons)}`);
 
     Object.keys(productStats).map(type => {
-      res[type] = productStats[type];
-    });
-
-    Object.keys(activeAddons).map(type => {
-      activeAddons[type].map(t => {
-        console.log(t);
+      this.setState(state => {
+        let newState = { ...state };
+        newState.finalStats[type] += parseInt(productStats[type], 10);
+        return newState;
       });
     });
 
-    console.log(res);
-    return res;
+    Object.keys(activeAddons).map(type => {
+      activeAddons[type] &&
+        activeAddons[type].map(t => {
+          this.setState(state => {
+            let newState = { ...state };
+            newState.finalStats[t] += activeAddons[t];
+            return newState;
+          });
+        });
+    });
+  };
+
+  onViewBreakdown = () => {
+    this.FinalCalculation();
   };
   render() {
     return (
@@ -185,6 +201,7 @@ class App extends Component {
             <Nav
               selectedProduct={this.state.selected.product}
               steps={[Steps.Step1, Steps.Step2, Steps.Step3]}
+              currentStep={this.state.currentStep}
             />
           }
           onStepChange={this.handleStepChange}

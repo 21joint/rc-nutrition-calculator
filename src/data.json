@@ -8,7 +8,7 @@
       "stats": {
         "cals": 160,
         "fats": 8,
-        "total_carbs": 14,
+        "carbs": 14,
         "fiber": 3,
         "sugar": 2,
         "protein": 12
@@ -22,7 +22,7 @@
       "stats": {
         "cals": 250,
         "fats": 11,
-        "total_carbs": 11,
+        "carbs": 11,
         "fiber": 6,
         "sugar": 2,
         "protein": 12
@@ -36,7 +36,7 @@
       "stats": {
         "cals": 240,
         "fats": 11,
-        "total_carbs": 9,
+        "carbs": 9,
         "fiber": 4,
         "sugar": 3,
         "protein": 14
@@ -50,7 +50,7 @@
       "stats": {
         "cals": 120,
         "fats": 6,
-        "total_carbs": 5,
+        "carbs": 5,
         "fiber": 3,
         "sugar": 1,
         "protein": 7
@@ -64,7 +64,7 @@
       "stats": {
         "cals": 160,
         "fats": 7,
-        "total_carbs": 12,
+        "carbs": 12,
         "fiber": 3,
         "sugar": 2,
         "protein": 6

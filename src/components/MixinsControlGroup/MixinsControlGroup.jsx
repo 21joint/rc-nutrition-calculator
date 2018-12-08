@@ -16,6 +16,7 @@ class MixinsControlGroup extends Component {
           <img
             src={`/images/icons/icon-${_type}.png`}
             className="mixins-controls-header__img"
+            alt={_type}
           />
           <h4>{_type}</h4>
           <button

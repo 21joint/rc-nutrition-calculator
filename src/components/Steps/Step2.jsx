@@ -112,7 +112,6 @@ export default class Step2 extends Component {
                     addNewAddonRow={this.props.addNewAddonRow}
                     removeAddonRow={this.props.removeAddonRow}
                     onSubmitModal={this.props.onSubmitModal}
-                    removeAddonRow={this.props.removeAddonRow}
                   />
                 );
               }
@@ -136,9 +135,9 @@ export default class Step2 extends Component {
                 <span>bars / balls</span>
               </div>
               <button
+                type="button"
                 className="button"
                 onClick={() => {
-                  console.log(this.props1);
                   this.props.onViewBreakdown();
                 }}
               >
