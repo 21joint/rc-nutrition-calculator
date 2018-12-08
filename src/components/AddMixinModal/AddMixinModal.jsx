@@ -53,7 +53,9 @@ class AddMixinModal extends Component {
               </h2>
               <img
                 className="app-modal--img"
-                src={`/images/icons/icon-${this.props.type}.png`}
+                src={`${this.props.baseUrl}/images/icons/icon-${
+                  this.props.type
+                }.png`}
                 alt={this.props.type}
               />
             </div>

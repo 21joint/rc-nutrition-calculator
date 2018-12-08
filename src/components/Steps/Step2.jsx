@@ -120,6 +120,7 @@ export default class Step2 extends Component {
                     addNewAddonRow={this.props.addNewAddonRow}
                     removeAddonRow={this.props.removeAddonRow}
                     onSubmitModal={this.props.onSubmitModal}
+                    baseUrl={!devMode ? baseUrl : ""}
                   />
                 );
               }
