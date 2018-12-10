@@ -1,12 +1,14 @@
+.app-section-3 {
+  padding-top: 50px;
+}
 .rc-tabs-top {
-  .rc-tabs-bar {
+  .rc-tabs-nav {
     border: 2px solid #efefef;
     overflow: hidden;
     border-radius: 100px;
+    background-color: #ffffff;
     z-index: 1;
     position: relative;
-  }
-  .rc-tabs-nav {
     > div {
       &:before {
         content: "";
@@ -20,7 +22,9 @@
       }
     }
   }
-
+  .rc-tabs-bar {
+    border: none;
+  }
   .rc-tabs-tab {
     text-transform: uppercase;
     width: 150px;
