@@ -14,6 +14,9 @@ export default class Step3 extends Component {
       start: 0
     };
   }
+  componentDidMount() {
+    console.log(document.body.innerHTML);
+  }
   onChange = activeKey => {
     console.log(`onChange ${activeKey}`);
     this.setState({
@@ -103,7 +106,7 @@ export default class Step3 extends Component {
                       " " +
                       mixin.label;
                   });
-                  return <span className="small">{res}</span>;
+                  return <span>{res}</span>;
                 })()}
               </div>
               <div className="breakdown-servings">
