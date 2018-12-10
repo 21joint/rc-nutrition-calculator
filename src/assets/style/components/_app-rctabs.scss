@@ -1,26 +1,36 @@
+.app-section-3 {
+  padding-top: 50px;
+}
 .rc-tabs-top {
-  .rc-tabs-bar {
+  .rc-tabs-nav {
     border: 2px solid #efefef;
     overflow: hidden;
     border-radius: 100px;
+    background-color: #ffffff;
     z-index: 1;
     position: relative;
-  }
-  .rc-tabs-nav {
-    > div {
-      &:before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        height: 2px;
-        margin-top: -1px;
-        width: 100%;
-        left: 0;
-        background-color: #efefef;
+    float: none;
+    padding: 5px 0;
+    margin: 0;
+    box-sizing: border-box;
+    &-container {
+      > div {
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          height: 2px;
+          margin-top: -1px;
+          width: 100%;
+          left: 0;
+          background-color: #efefef;
+        }
       }
     }
   }
-
+  .rc-tabs-bar {
+    border: none;
+  }
   .rc-tabs-tab {
     text-transform: uppercase;
     width: 150px;

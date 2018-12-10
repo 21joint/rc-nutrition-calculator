@@ -4,6 +4,10 @@ import Sortable from "react-sortablejs";
 import Tabs, { TabPane } from "rc-tabs";
 import TabContent from "rc-tabs/lib/SwipeableTabContent";
 import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
+import { name as packageName } from "../../../package.json";
+
+const devMode = process.env.NODE_ENV !== "production";
+const baseUrl = !devMode ? "/" + packageName : "";
 
 export default class Step3 extends Component {
   constructor(props) {
@@ -99,7 +103,12 @@ export default class Step3 extends Component {
         <div className="app-breakdown--peanut app-breakdown">
           <div className="app-breakdown__main">
             <div className="app-breakdown__product-img-wrap">
-              <div className="app-breakdown__product-img" />
+              <div className="app-breakdown__product-img">
+                <img
+                  src={baseUrl + this.props.selectedProduct.img}
+                  alt={this.props.selectedProduct.title}
+                />
+              </div>
             </div>
             <div className="app-breakdown__titles">
               <h2 className="h1">PB &amp; Jelly Get in My Belly</h2>
