@@ -146,11 +146,14 @@ export default class Step2 extends Component {
               <button
                 type="button"
                 className="button"
-                disabled={!this.props.activeAddons.liquids.length}
+                disabled={
+                  this.props.activeAddons.liquids.length < 1 ||
+                  (this.props.activeAddons.liquids.length === 1 &&
+                    !this.props.activeAddons.liquids[0].addon)
+                }
                 onClick={() => {
                   this.props.onViewBreakdown(this.props.goToStep);
-                }}
-              >
+                }}>
                 View Nutrition Breakdown
               </button>
             </div>

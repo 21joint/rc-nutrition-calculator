@@ -6,6 +6,6 @@
   "singleQuote": false,
   "trailingComma": "none",
   "bracketSpacing": true,
-  "jsxBracketSameLine": false,
-  "fluid": false
+  "fluid": false,
+  "jsxBracketSameLine": true
 }

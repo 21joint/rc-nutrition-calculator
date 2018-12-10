@@ -118,7 +118,7 @@
         padding: 16px 18px;
         background-color: $color--white;
         border-radius: $radius--sm;
-        box-shadow: 1px 1px 2px 1px #0000001f;
+        box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
         & + li {
           border-top-left-radius: 0;
           border-top-right-radius: 0;
