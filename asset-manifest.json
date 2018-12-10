@@ -1,15 +1,15 @@
 {
-  "main.css": "/rc-nutrition-calculator/static/css/main.4c086de1.chunk.css",
-  "main.js": "/rc-nutrition-calculator/static/js/main.23f3d668.chunk.js",
-  "main.js.map": "/rc-nutrition-calculator/static/js/main.23f3d668.chunk.js.map",
+  "main.css": "/rc-nutrition-calculator/static/css/main.225050f8.chunk.css",
+  "main.js": "/rc-nutrition-calculator/static/js/main.02782a7b.chunk.js",
+  "main.js.map": "/rc-nutrition-calculator/static/js/main.02782a7b.chunk.js.map",
   "static/css/1.9ce634a1.chunk.css": "/rc-nutrition-calculator/static/css/1.9ce634a1.chunk.css",
-  "static/js/1.72b3131d.chunk.js": "/rc-nutrition-calculator/static/js/1.72b3131d.chunk.js",
-  "static/js/1.72b3131d.chunk.js.map": "/rc-nutrition-calculator/static/js/1.72b3131d.chunk.js.map",
+  "static/js/1.e1ba0293.chunk.js": "/rc-nutrition-calculator/static/js/1.e1ba0293.chunk.js",
+  "static/js/1.e1ba0293.chunk.js.map": "/rc-nutrition-calculator/static/js/1.e1ba0293.chunk.js.map",
   "runtime~main.js": "/rc-nutrition-calculator/static/js/runtime~main.10722dd5.js",
   "runtime~main.js.map": "/rc-nutrition-calculator/static/js/runtime~main.10722dd5.js.map",
   "static/css/1.9ce634a1.chunk.css.map": "/rc-nutrition-calculator/static/css/1.9ce634a1.chunk.css.map",
-  "static/css/main.4c086de1.chunk.css.map": "/rc-nutrition-calculator/static/css/main.4c086de1.chunk.css.map",
+  "static/css/main.225050f8.chunk.css.map": "/rc-nutrition-calculator/static/css/main.225050f8.chunk.css.map",
   "index.html": "/rc-nutrition-calculator/index.html",
-  "precache-manifest.d313bbc7821d04fbd8b4d487a90da820.js": "/rc-nutrition-calculator/precache-manifest.d313bbc7821d04fbd8b4d487a90da820.js",
+  "precache-manifest.fda7a38376c12f9913a5e963825bcd6a.js": "/rc-nutrition-calculator/precache-manifest.fda7a38376c12f9913a5e963825bcd6a.js",
   "service-worker.js": "/rc-nutrition-calculator/service-worker.js"
 }
