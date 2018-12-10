@@ -36,43 +36,6 @@ export default class Step3 extends Component {
       stat => stat.source.indexOf("addon") > -1
     );
 
-    const PanelContent = ({ id }) => {
-      return (
-        <div key={id}>
-          <div className="app-breakdown__details">
-            <div className="product-nutrition">
-              <div className="nutrition-item--cals nutrition-item">
-                <div className="nutrition-item__label">Calories</div>
-                <div className="nutrition-item__value">160</div>
-              </div>
-              <div className="nutrition-item--fats nutrition-item">
-                <div className="nutrition-item__label">Fats</div>
-                <div className="nutrition-item__value">8</div>
-              </div>
-              <div className="nutrition-item--carbs nutrition-item">
-                <div className="nutrition-item--carbs__total">
-                  <div className="nutrition-item__label">Total Carbs</div>
-                  <div className="nutrition-item__value">7</div>
-                </div>
-                <div className="nutrition-item--carbs__breakdown">
-                  <div className="carbs-breakdown-item">
-                    3 <span>G Fiber</span>
-                  </div>
-                  <div className="carbs-breakdown-item">
-                    2 <span>G Sugars</span>
-                  </div>
-                </div>
-              </div>
-              <div className="nutrition-item--protein nutrition-item">
-                <div className="nutrition-item__label">Protein</div>
-                <div className="nutrition-item__value">12</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    };
-
     let finalStats = {};
     finalRows.map(row => {
       Object.keys(row).map(key => {
@@ -84,7 +47,52 @@ export default class Step3 extends Component {
       });
     });
 
-    console.log(finalStats);
+    const PanelContent = ({ id, dividedBy }) => {
+      return (
+        <div key={id}>
+          <div className="app-breakdown__details">
+            <div className="product-nutrition">
+              <div className="nutrition-item--cals nutrition-item">
+                <div className="nutrition-item__label">Calories</div>
+                <div className="nutrition-item__value">
+                  {(finalStats["cals"] * (1 / dividedBy)).toFixed(1)}
+                </div>
+              </div>
+              <div className="nutrition-item--fats nutrition-item">
+                <div className="nutrition-item__label">Fats</div>
+                <div className="nutrition-item__value">
+                  {(finalStats["fats"] * (1 / dividedBy)).toFixed(1)}
+                </div>
+              </div>
+              <div className="nutrition-item--carbs nutrition-item">
+                <div className="nutrition-item--carbs__total">
+                  <div className="nutrition-item__label">Total Carbs</div>
+                  <div className="nutrition-item__value">
+                    {(finalStats["carbs"] * (1 / dividedBy)).toFixed(1)}
+                  </div>
+                </div>
+                <div className="nutrition-item--carbs__breakdown">
+                  <div className="carbs-breakdown-item">
+                    {(finalStats["fiber"] * (1 / dividedBy)).toFixed(1)}{" "}
+                    <span>G Fiber</span>
+                  </div>
+                  <div className="carbs-breakdown-item">
+                    {(finalStats["sugar"] * (1 / dividedBy)).toFixed(1)}{" "}
+                    <span>G Sugars</span>
+                  </div>
+                </div>
+              </div>
+              <div className="nutrition-item--protein nutrition-item">
+                <div className="nutrition-item__label">Protein</div>
+                <div className="nutrition-item__value">
+                  {(finalStats["protein"] * (1 / dividedBy)).toFixed(1)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    };
 
     return (
       <section className="app-section-3">
@@ -121,10 +129,18 @@ export default class Step3 extends Component {
               activeKey={this.state.activeKey}
               onChange={this.onChange}>
               <TabPane tab={`${resultTypes[tabsStart].title}`} key="0">
-                <PanelContent id={tabsStart} resultTypes={resultTypes} />
+                <PanelContent
+                  id={tabsStart}
+                  resultTypes={resultTypes}
+                  dividedBy={dividedBy}
+                />
               </TabPane>
               <TabPane tab={`${resultTypes[tabsStart + 1].title}`} key="1">
-                <PanelContent id={tabsStart + 1} resultTypes={resultTypes} />
+                <PanelContent
+                  id={tabsStart + 1}
+                  resultTypes={resultTypes}
+                  dividedBy="1"
+                />
               </TabPane>
             </Tabs>
           </div>
