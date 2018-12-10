@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import log from "console.pretty";
 import StepWizard from "react-step-wizard";
 import "./App.scss";
 import AppLoader from "./components/AppLoader";
@@ -32,18 +31,11 @@ class App extends Component {
       },
       activeAddons,
       modalAddons,
+      finalRows: [],
       selected: {
         product: null
       },
-      dividedBy: 12,
-      finalStats: {
-        cals: 0,
-        fats: 0,
-        carbs: 0,
-        fiber: 0,
-        sugar: 0,
-        protein: 0
-      }
+      dividedBy: 12
     };
   }
 
@@ -163,28 +155,20 @@ class App extends Component {
     const productStats = product.stats;
     const activeAddons = this.state.activeAddons;
 
-    log.blue(`Product Stats -- \n ${JSON.stringify(productStats)}`);
-    log.blue(`Active Addons -- \n ${JSON.stringify(activeAddons)}`);
+    let finalRows = [{ ...productStats, source: "product" }];
 
-    Object.keys(productStats).map(type => {
-      this.setState(state => {
-        let newState = { ...state };
-        //log.yellow(type, newState.finalStats[type]);
-        log.green(parseInt(productStats[type], 10));
-        newState.finalStats[type] += parseInt(productStats[type], 10);
-        return newState;
+    Object.keys(activeAddons).map(type => {
+      activeAddons[type].map(row => {
+        finalRows.push({
+          quantity: row.quantity,
+          ...row.addon,
+          source: "addon"
+        });
       });
     });
 
-    Object.keys(activeAddons).map(type => {
-      activeAddons[type] &&
-        activeAddons[type].map(t => {
-          this.setState(state => {
-            let newState = { ...state };
-            newState.finalStats[t] += activeAddons[t];
-            return newState;
-          });
-        });
+    this.setState({
+      finalRows
     });
   };
 
@@ -205,8 +189,7 @@ class App extends Component {
             />
           }
           onStepChange={this.handleStepChange}
-          isLazyMount
-        >
+          isLazyMount>
           <Steps.Step1
             currentStep={this.state.currentStep}
             selectedProduct={this.state.selected.product}
@@ -232,6 +215,9 @@ class App extends Component {
           <Steps.Step3
             currentStep={this.state.currentStep}
             selectedProduct={this.state.selected.product}
+            activeAddons={this.state.activeAddons}
+            finalRows={this.state.finalRows}
+            dividedBy={this.state.dividedBy}
           />
         </StepWizard>
       </div>
