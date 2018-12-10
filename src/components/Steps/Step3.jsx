@@ -1,3 +1,4 @@
+import "rc-tabs/assets/index.css";
 import React, { Component } from "react";
 import Sortable from "react-sortablejs";
 import Tabs, { TabPane } from "rc-tabs";
@@ -9,7 +10,7 @@ export default class Step3 extends Component {
     super(props);
     this.title = props.title;
     this.state = {
-      activeKey: "",
+      activeKey: "1",
       start: 0
     };
   }
@@ -20,45 +21,54 @@ export default class Step3 extends Component {
     });
   };
 
-  onTabClick = key => {
-    console.log(`onTabClick ${key}`);
-    if (key === this.state.activeKey) {
-      this.setState({
-        activeKey: ""
-      });
-    }
-  };
-
-  tick = () => {
-    this.setState({
-      start: this.state.start + 10
-    });
-  };
-
-  handleNotExistKey = () => {
-    this.setState({
-      activeKey: "-1"
-    });
-  };
-
   render() {
     const tabsStart = this.state.start;
     const finalRows = this.props.finalRows;
+    const resultTypes = [
+      { title: "Per Serving", multiplier: this.props.dividedBy },
+      { title: "Per Total", multiplier: 1 }
+    ];
     const dividedBy = this.props.dividedBy;
     const finalAddons = finalRows.filter(
       stat => stat.source.indexOf("addon") > -1
     );
 
-    const PanelContent = resultTypes => (
-      <div>
-        {this.props.resultTypes.map((restype, i) => (
-          <div key={i}>
-            {this.props.chidlren}
-            {JSON.stringify(restype)}
+    const PanelContent = ({ id }) => {
+      return (
+        <div key={id}>
+          <div className="app-breakdown__details">
+            <div className="product-nutrition">
+              <div className="nutrition-item--cals nutrition-item">
+                <div className="nutrition-item__label">Calories</div>
+                <div className="nutrition-item__value">160</div>
+              </div>
+              <div className="nutrition-item--fats nutrition-item">
+                <div className="nutrition-item__label">Fats</div>
+                <div className="nutrition-item__value">8</div>
+              </div>
+              <div className="nutrition-item--carbs nutrition-item">
+                <div className="nutrition-item--carbs__total">
+                  <div className="nutrition-item__label">Total Carbs</div>
+                  <div className="nutrition-item__value">7</div>
+                </div>
+                <div className="nutrition-item--carbs__breakdown">
+                  <div className="carbs-breakdown-item">
+                    3 <span>G Fiber</span>
+                  </div>
+                  <div className="carbs-breakdown-item">
+                    2 <span>G Sugars</span>
+                  </div>
+                </div>
+              </div>
+              <div className="nutrition-item--protein nutrition-item">
+                <div className="nutrition-item__label">Protein</div>
+                <div className="nutrition-item__value">12</div>
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
-    );
+        </div>
+      );
+    };
 
     let finalStats = {};
     finalRows.map(row => {
@@ -100,101 +110,18 @@ export default class Step3 extends Component {
                 Split Into {dividedBy} Servings
               </div>
             </div>
+
             <Tabs
-              renderTabBar={() => (
-                <ScrollableInkTabBar onTabClick={this.onTabClick} />
-              )}
+              renderTabBar={() => <ScrollableInkTabBar />}
               renderTabContent={() => <TabContent animatedWithMargin />}
               navWrapper={content => <Sortable>{content}</Sortable>}
               activeKey={this.state.activeKey}
               onChange={this.onChange}>
-              <TabPane tab={`tab ${tabsStart}`} key="1">
-                <div className="app-breakdown__toggle">
-                  <div className="toggle">
-                    <span
-                      className="toggle-control--serving toggle-control"
-                      data-app-toggle-active>
-                      Per Serving
-                    </span>
-                    <span className="toggle-control--total toggle-control">
-                      Recipe Total
-                    </span>
-                  </div>
-                </div>
-                <div className="app-breakdown__details">
-                  <div className="product-nutrition">
-                    <div className="nutrition-item--cals nutrition-item">
-                      <div className="nutrition-item__label">Calories</div>
-                      <div className="nutrition-item__value">160</div>
-                    </div>
-                    <div className="nutrition-item--fats nutrition-item">
-                      <div className="nutrition-item__label">Fats</div>
-                      <div className="nutrition-item__value">8</div>
-                    </div>
-                    <div className="nutrition-item--carbs nutrition-item">
-                      <div className="nutrition-item--carbs__total">
-                        <div className="nutrition-item__label">Total Carbs</div>
-                        <div className="nutrition-item__value">7</div>
-                      </div>
-                      <div className="nutrition-item--carbs__breakdown">
-                        <div className="carbs-breakdown-item">
-                          3 <span>G Fiber</span>
-                        </div>
-                        <div className="carbs-breakdown-item">
-                          2 <span>G Sugars</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="nutrition-item--protein nutrition-item">
-                      <div className="nutrition-item__label">Protein</div>
-                      <div className="nutrition-item__value">12</div>
-                    </div>
-                  </div>
-                </div>
+              <TabPane tab={`${resultTypes[tabsStart].title}`} key="0">
+                <PanelContent id={tabsStart} resultTypes={resultTypes} />
               </TabPane>
-              <TabPane tab={`tab ${tabsStart + 1}`} key="2">
-                <div className="app-breakdown__toggle">
-                  <div className="toggle">
-                    <span
-                      className="toggle-control--serving toggle-control"
-                      data-app-toggle-active>
-                      Per Serving
-                    </span>
-                    <span className="toggle-control--total toggle-control">
-                      Recipe Total
-                    </span>
-                  </div>
-                </div>
-                <div className="app-breakdown__details">
-                  <div className="product-nutrition">
-                    <div className="nutrition-item--cals nutrition-item">
-                      <div className="nutrition-item__label">Calories</div>
-                      <div className="nutrition-item__value">160</div>
-                    </div>
-                    <div className="nutrition-item--fats nutrition-item">
-                      <div className="nutrition-item__label">Fats</div>
-                      <div className="nutrition-item__value">8</div>
-                    </div>
-                    <div className="nutrition-item--carbs nutrition-item">
-                      <div className="nutrition-item--carbs__total">
-                        <div className="nutrition-item__label">Total Carbs</div>
-                        <div className="nutrition-item__value">7</div>
-                      </div>
-                      <div className="nutrition-item--carbs__breakdown">
-                        <div className="carbs-breakdown-item">
-                          3 <span>G Fiber</span>
-                        </div>
-                        <div className="carbs-breakdown-item">
-                          2 <span>G Sugars</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="nutrition-item--protein nutrition-item">
-                      <div className="nutrition-item__label">Protein</div>
-                      <div className="nutrition-item__value">12</div>
-                    </div>
-                  </div>
-                </div>
+              <TabPane tab={`${resultTypes[tabsStart + 1].title}`} key="1">
+                <PanelContent id={tabsStart + 1} resultTypes={resultTypes} />
               </TabPane>
             </Tabs>
           </div>

@@ -1,0 +1,17 @@
+.rc-tabs-top {
+    .rc-tabs-ink-bar {
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        background-color: $color--fire;
+    }
+   > .rc-tabs-tab-inner:hover {
+  color: #333333;
+}
+    .rc-tabs-nav div.rc-tabs-tab-active {
+    position: relative;
+    z-index: 10;
+    color: #ffffff;
+    }
+}
+
