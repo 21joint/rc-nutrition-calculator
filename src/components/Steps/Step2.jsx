@@ -51,29 +51,29 @@ export default class Step2 extends Component {
               <div className="nutrition-item--cals nutrition-item">
                 <div className="nutrition-item__label">Calories</div>
                 <div className="nutrition-item__value">
-                  {selectedProduct.stats.cals}
+                  {selectedProduct.stats.cals / selectedProduct.standard_servings}
                 </div>
               </div>
               <div className="nutrition-item--fats nutrition-item">
                 <div className="nutrition-item__label">Fats</div>
                 <div className="nutrition-item__value">
-                  {selectedProduct.stats.fats}
+                  {selectedProduct.stats.fats / selectedProduct.standard_servings}
                 </div>
               </div>
               <div className="nutrition-item--carbs nutrition-item">
                 <div className="nutrition-item--carbs__total">
                   <div className="nutrition-item__label">Total Carbs</div>
                   <div className="nutrition-item__value">
-                    {selectedProduct.stats.carbs}
+                    {selectedProduct.stats.carbs / selectedProduct.standard_servings}
                   </div>
                 </div>
                 <div className="nutrition-item--carbs__breakdown">
                   <div className="carbs-breakdown-item">
-                    {selectedProduct.stats.fiber}
+                    {selectedProduct.stats.fiber / selectedProduct.standard_servings}
                     <span>G Fiber</span>
                   </div>
                   <div className="carbs-breakdown-item">
-                    {selectedProduct.stats.sugar}
+                    {selectedProduct.stats.sugar / selectedProduct.standard_servings}
                     <span>G Sugars</span>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ export default class Step2 extends Component {
               <div className="nutrition-item--protein nutrition-item">
                 <div className="nutrition-item__label">Protein</div>
                 <div className="nutrition-item__value">
-                  {selectedProduct.stats.protein}
+                  {selectedProduct.stats.protein / selectedProduct.standard_servings}
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default class Step2 extends Component {
                   min={0}
                   max={40}
                   onChange={this.props.onDividedByChange}
-                  defaultValue={this.props.dividedBy}
+                  defaultValue={selectedProduct.standard_servings}
                 />
                 <span>bars / balls</span>
               </div>
