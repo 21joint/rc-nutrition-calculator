@@ -111,7 +111,7 @@ export default class Step3 extends Component {
               </div>
             </div>
             <div className="app-breakdown__titles">
-              <h2 className="h1">PB &amp; Jelly Get in My Belly</h2>
+              <h2 className="h1">{this.props.selectedProduct.title}</h2>
               <div className="breakdown-mixins-description">
                 with{" "}
                 {(() => {
