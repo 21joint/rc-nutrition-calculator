@@ -38,9 +38,18 @@
   justify-content: space-between;
   align-items: center;
   color: $color--brand--primary;
-  font-size: 80%;
+  font-size: 13px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+
+  span {
+    vertical-align: middle;
+  }
+
   .btn-icon {
-    margin-right: 5px;
+    margin-right: 12px;
   }
 }
 .app-progress-bar {
