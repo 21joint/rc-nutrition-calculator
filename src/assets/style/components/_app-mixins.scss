@@ -46,22 +46,18 @@
     }
 
     .mixins-controls-group {
-      word-break: break-all;
       @include flex(1, 1, 100%);
+      width: 100%;
+      word-break: break-all;
       margin: 0 auto $spacing--vert--xl auto;
       text-align: center;
       padding: 0 15px;
-      max-width: 300px;
       position: relative;
-      & + .mixins-controls-group:before {
-        content: "+";
-        position: absolute;
-        left: -50px;
-        top: 50%;
-        transform: translate(0, -100%);
-        font-size: 40px;
-        color: $color--gray--light;
+
+      @include breakpoint(xs) {
+        max-width: 300px;
       }
+
       &.required {
         h4 {
           &:after {
@@ -70,6 +66,7 @@
           }
         }
       }
+
       @include breakpoint(sm) {
         @include flex(0, 1, auto);
         width: 33.33333333%;
@@ -77,7 +74,7 @@
     }
 
     .mixins-controls-header {
-      margin-bottom: $spacing--vert--md;
+      margin-bottom: $spacing--vert--sm;
 
       h4 {
         margin-bottom: $spacing--vert--md;

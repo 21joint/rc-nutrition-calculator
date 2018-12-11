@@ -1,8 +1,10 @@
 @import "../../assets/style/base/vars";
+@import "../../assets/style/base/utils-media";
+
 .app-modal {
   font-family: $family--sans;
+
   .button {
-    height: 100%;
     font: inherit;
     line-height: 1;
     text-transform: none;
@@ -18,6 +20,11 @@
   top: 50%;
   transform: translateY(-50%);
   right: 0;
+  display: none;
+
+  @include breakpoint(xs) {
+    display: block;
+  }
 }
 .app-modal--title {
   font-size: 28px;
@@ -36,11 +43,53 @@
   }
 }
 
+.addon-row {
+  align-items: top;
+
+  @include breakpoint(xs) {
+    align-items: center;
+  }
+}
+
+.addon-row__amount {
+  margin-bottom: 18px;
+
+  @include breakpoint(xs) {
+    margin-bottom: 0;
+  }
+}
+
+.addon-row__of {
+  display: none;
+
+  @include breakpoint(xs) {
+    display: block;
+  }
+}
+
+.addon-row__remove {
+  margin-bottom: 6px;
+  text-align: right;
+  color: $color--text--lighter;
+
+  &:after {
+    content: 'Remove';
+
+    @include breakpoint(xs) {
+      display: none;
+    }
+  }
+
+  @include breakpoint(xs) {
+    margin-bottom: 0;
+    text-align: inherit;
+  }
+}
+
 .button-remove--addonrow {
   background: transparent;
-  color: #999999;
+  color: $color--text--light;
   border: none;
-  height: 100%;
   padding: 10px;
 }
 

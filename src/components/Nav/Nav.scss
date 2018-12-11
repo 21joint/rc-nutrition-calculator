@@ -43,6 +43,11 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-decoration: none;
+  display: none;
+
+  @include breakpoint(sm) {
+    display: flex;
+  }
 
   span {
     vertical-align: middle;
@@ -60,6 +65,8 @@
   background-color: $color--white;
   width: 100%;
   position: relative;
+  display: none;
+
   @include breakpoint(sm) {
     display: block;
   }

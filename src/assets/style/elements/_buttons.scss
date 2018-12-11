@@ -52,6 +52,7 @@ button,
 
 // Text-only buttons
 .text-button {
+  padding: 12px 22px;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: $spacing--wide;
@@ -72,6 +73,6 @@ button,
 .btn-add--row {
   background-color: transparent;
   border: none;
-  color: #d5d5d5;
+  color: $color--text--light;
   padding: 10px 0;
 }
