@@ -13,11 +13,13 @@ class MixinsControlGroup extends Component {
         ) > -1 && "required"}`}
       >
         <div className="mixins-controls-header">
-          <img
-            src={`${this.props.baseUrl}/images/icons/icon-${_type}.png`}
-            className="mixins-controls-header__img"
-            alt={_type}
-          />
+          <div class="mixin-controls-header__graphic">
+            <img
+              src={`${this.props.baseUrl}/images/icons/icon-${_type}.png`}
+              className="mixins-controls-header__img"
+              alt={_type}
+            />
+          </div>
           <h4>{_type}</h4>
           <button
             onClick={() => this.props.openModal(_type)}

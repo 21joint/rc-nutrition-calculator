@@ -1,61 +1,79 @@
 .app-section-3 {
   padding-top: 50px;
-}
-.rc-tabs-top {
-  .rc-tabs-nav {
-    border: 2px solid #efefef;
-    overflow: hidden;
-    border-radius: 100px;
-    background-color: #ffffff;
-    z-index: 1;
-    position: relative;
-    float: none;
-    padding: 5px 0;
-    box-sizing: border-box;
-    margin: auto;
-    &-container {
-      > div {
-        &:before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          height: 2px;
-          margin-top: -1px;
-          width: 100%;
-          left: 0;
-          background-color: #efefef;
+
+  .rc-tabs-top {
+    border: none;
+    
+    .rc-tabs-nav-scroll {
+      width: auto;
+      text-align: center;
+    }
+
+    .rc-tabs-nav {
+      border: 2px solid #efefef;
+      overflow: hidden;
+      border-radius: 100px;
+      background-color: #ffffff;
+      z-index: 1;
+      position: relative;
+      float: none;
+      padding: 5px 0;
+      box-sizing: border-box;
+      margin: auto;
+      display: inline-block;
+
+      &-container {
+        > div {
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            height: 2px;
+            margin-top: -1px;
+            width: 100%;
+            left: 0;
+            background-color: #efefef;
+          }
         }
       }
     }
-  }
-  .rc-tabs-bar {
-    border: none;
-  }
-  .rc-tabs-tab {
-    text-transform: uppercase;
-    width: 150px;
-    text-align: center;
-    &:hover {
-      color: $color--fire;
+
+    .rc-tabs-bar {
+      border: none;
     }
-    &-active {
-      z-index: 2;
-      color: #ffffff;
+
+    .rc-tabs-tab {
+      width: 150px;
+      margin: 0;
+      text-transform: uppercase;
+      text-align: center;
+
       &:hover {
-        color: #ffffff;
+        color: $color--brand--primary;
+      }
+
+      &-active {
+        z-index: 2;
+        color: $color--white;
+
+        &:hover {
+          color: $color--white;
+        }
       }
     }
+
+    .rc-tabs-ink-bar {
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: $color--brand--primary;
+      z-index: 1;
+    }
   }
 
-  .rc-tabs-ink-bar {
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    background-color: $color--fire;
-    z-index: 1;
-  }
-}
 
-.rc-tabs-tabpane {
-  padding: 30px 0;
+  .rc-tabs-tabpane {
+    padding: 30px 0;
+  }
+
 }

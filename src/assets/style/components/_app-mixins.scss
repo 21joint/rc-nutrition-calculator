@@ -81,10 +81,18 @@
       }
     }
 
-    .mixins-controls-header__img {
-      display: inline-block;
+    .mixin-controls-header__graphic {
       height: 84px;
       margin-bottom: $spacing--vert--md;
+    }
+
+    .mixins-controls-header__img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .mixins-controls-group--fats .mixins-controls-header__img {
+      margin-top: 12px;
     }
 
     // .mixins-controls-group--liquids .mixins-controls-header__img {
@@ -166,3 +174,4 @@
     }
   }
 }
+ 

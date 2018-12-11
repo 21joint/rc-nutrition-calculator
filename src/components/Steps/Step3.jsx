@@ -33,7 +33,7 @@ export default class Step3 extends Component {
     const finalRows = this.props.finalRows;
     const resultTypes = [
       { title: "Per Serving", multiplier: this.props.dividedBy },
-      { title: "Per Total", multiplier: 1 }
+      { title: "Recipe Total", multiplier: 1 }
     ];
     const dividedBy = this.props.dividedBy;
     const finalAddons = finalRows.filter(
