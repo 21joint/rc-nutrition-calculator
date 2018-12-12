@@ -105,7 +105,7 @@ class AddMixinModal extends Component {
                       )
                     }}
                   >
-                    Update Recipe
+                    Add to Recipe
                   </button>
                 </div>
                 <div className="col-auto">
