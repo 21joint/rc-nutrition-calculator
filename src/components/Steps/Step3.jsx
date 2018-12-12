@@ -14,7 +14,7 @@ export default class Step3 extends Component {
     super(props);
     this.title = props.title;
     this.state = {
-      activeKey: "1",
+      activeKey: "0",
       start: 0
     };
   }
