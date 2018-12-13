@@ -10,6 +10,14 @@
     text-transform: none;
     letter-spacing: inherit;
   }
+
+  .button--add-mixin {
+    margin-bottom: 18px;
+
+    @include breakpoint(sm) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .app-modal--header {
@@ -26,6 +34,7 @@
     display: block;
   }
 }
+
 .app-modal--title {
   font-size: 28px;
   margin-bottom: 50px;

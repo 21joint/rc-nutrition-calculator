@@ -95,7 +95,7 @@ class AddMixinModal extends Component {
               <div className="row">
                 <div className="col-auto">
                   <button
-                    className="button"
+                    className="button--add-mixin button"
                     type="button"
                     onClick={() => {
                       this.props.onSubmitModal(
