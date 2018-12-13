@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class MixinsControlGroup extends Component {
   render() {
     const _type = this.props.type;
-    const _activeAddons = this.props.activeAddons;
+    const _activeAddons = this.props.activeAddons[_type];
 
     return (
       <div
@@ -29,15 +29,18 @@ class MixinsControlGroup extends Component {
             Edit
           </button>
         </div>
-        {_activeAddons.length >= 1 ? (
+        {_activeAddons.length > 1 ||
+        (_activeAddons.length === 1 && _activeAddons[0].addon !== null) ? (
           <div className="mixins-controls-list">
             <ul className="mixins-ingredients-list">
               {_activeAddons.map((row, key) => {
                 return (
-                  <li key={key}>
-                    {row.quantity.label ? row.quantity.label : ""}{" "}
-                    {row.addon && row.addon.label}
-                  </li>
+                  row.addon !== null && (
+                    <li key={key}>
+                      {row.quantity.label ? row.quantity.label : ""}{" "}
+                      {row.addon && row.addon.label}
+                    </li>
+                  )
                 );
               })}
             </ul>
