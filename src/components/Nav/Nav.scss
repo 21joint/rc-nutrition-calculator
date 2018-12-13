@@ -28,25 +28,23 @@
 }
 
 .app-back--button {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: transparent;
-  border-color: transparent;
+  display: block;
+  margin-bottom: 24px;
   padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: $color--brand--primary;
   font-size: 13px;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-decoration: none;
-  display: none;
+  color: $color--brand--primary;
+  border-color: transparent;
+  background-color: transparent;
 
   @include breakpoint(sm) {
-    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-bottom: 0;
   }
 
   span {

@@ -35,19 +35,6 @@ class Nav extends Component {
           <ul>{steps}</ul>
         </nav>
         <div className="app-title">
-          <h2>
-            Step {currentStep}: {this.props.steps[currentStep - 1].title}
-            {this.props.steps.map(
-              step => step.active && step.id + ": " + step.title
-            )}
-          </h2>
-          <h1>
-            {currentStep === 1
-              ? "Recipe Nutrition Calculator"
-              : currentStep === 2
-              ? "What’s Your Recipe"
-              : "Your Nutrition Breakdown"}
-          </h1>
           {currentStep <= 1 ? (
             ""
           ) : (
@@ -79,6 +66,19 @@ class Nav extends Component {
               <span className="btn-text">Back</span>
             </button>
           )}
+          <h2>
+            Step {currentStep}: {this.props.steps[currentStep - 1].title}
+            {this.props.steps.map(
+              step => step.active && step.id + ": " + step.title
+            )}
+          </h2>
+          <h1>
+            {currentStep === 1
+              ? "Recipe Nutrition Calculator"
+              : currentStep === 2
+              ? "What’s Your Recipe"
+              : "Your Nutrition Breakdown"}
+          </h1>
         </div>
       </div>
     );
