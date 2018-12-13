@@ -98,7 +98,7 @@ export default class Step2 extends Component {
                   key={key}
                   type={type}
                   modalAddons={this.props.modalAddons[type]}
-                  activeAddons={this.props.activeAddons[type]}
+                  activeAddons={this.props.activeAddons}
                   openModal={this.openModal.bind(this)}
                   baseUrl={!devMode ? baseUrl : ""}
                 />
@@ -111,7 +111,7 @@ export default class Step2 extends Component {
                   <AddMixinModal
                     type={mType}
                     modalAddons={this.props.modalAddons}
-                    typeActiveAddons={this.props.activeAddons[mType]}
+                    activeAddons={this.props.activeAddons}
                     openModal={this.openModal.bind(this)}
                     closeModal={this.closeModal.bind(this)}
                     modalIsOpen={this.state.modal.open}
@@ -146,12 +146,9 @@ export default class Step2 extends Component {
               <button
                 type="button"
                 className="button"
-                disabled={
-                  this.props.activeAddons[this.props.requiredMixin.title]
-                    .length < this.props.requiredMixin.min
-                }
+                disabled={!this.props.activeAddons.liquids.length}
                 onClick={() => {
-                  this.props.onViewBreakdown();
+                  this.props.onViewBreakdown(this.props.goToStep);
                 }}
               >
                 View Nutrition Breakdown

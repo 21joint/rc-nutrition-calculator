@@ -97,13 +97,13 @@ class AddMixinModal extends Component {
                   <button
                     className="button"
                     type="button"
-                    onClick={() =>
+                    onClick={() => {
                       this.props.onSubmitModal(
                         this.props.type,
                         this.props.modalAddons,
                         this.props.closeModal
                       )
-                    }
+                    }}
                   >
                     Update Recipe
                   </button>

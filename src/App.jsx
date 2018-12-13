@@ -25,7 +25,6 @@ class App extends Component {
     });
     this.state = {
       loading: true,
-      stats: {},
       currentStep: 1,
       modal: {
         open: false,
@@ -49,10 +48,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        loading: false
-      });
+    this.setState({
+      loading: false
     });
   }
 
@@ -122,12 +119,19 @@ class App extends Component {
   };
 
   removeAddonRow = (type, key) => {
-    if (this.state.modalAddons[type].length - 1 > 0)
-      this.setState(state => {
-        let newState = { ...state };
-        delete newState.modalAddons[type][key];
-        return newState;
-      });
+    this.setState(state => {
+      let newState = { ...state };
+      if (this.state.modalAddons[type].length > 1)
+        newState.modalAddons[type].splice(key - 1, 1);
+      else if (this.state.modalAddons[type].length === 1) {
+        newState.modalAddons[type][0] = {
+          id: 1,
+          quantity: allQuantities[0],
+          addon: null
+        };
+      }
+      return newState;
+    });
   };
 
   onSubmitModal = (type, addons, callback) => {
@@ -140,21 +144,18 @@ class App extends Component {
       return newState;
     });
 
-    setTimeout(() => {
-      this.setState(state => {
-        let newState = { ...state };
-        newState.loading = false;
-        return {
-          loading: false,
-          modal: {
-            open: false,
-            type: null
-          }
-        };
-      });
-      console.log(this.state);
-      if (typeof callback === "function") callback();
-    }, 100);
+    this.setState(state => {
+      let newState = { ...state };
+      newState.loading = false;
+      return {
+        loading: false,
+        modal: {
+          open: false,
+          type: null
+        }
+      };
+    });
+    typeof callback === "function" && callback();
   };
 
   FinalCalculation = () => {
@@ -187,8 +188,9 @@ class App extends Component {
     });
   };
 
-  onViewBreakdown = () => {
+  onViewBreakdown = cb => {
     this.FinalCalculation();
+    typeof cb === "function" && cb(this.state.currentStep + 1);
   };
   render() {
     return (
@@ -225,7 +227,7 @@ class App extends Component {
             addNewAddonRow={this.addNewAddonRow}
             removeAddonRow={this.removeAddonRow}
             onViewBreakdown={this.onViewBreakdown}
-            requiredMixin={{ title: "liquids", min: 1 }}
+            requiredMixin={{ type: "liquids", min: 1 }}
           />
           <Steps.Step3
             currentStep={this.state.currentStep}

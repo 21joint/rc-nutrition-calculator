@@ -16,7 +16,7 @@ class AddonRow extends Component {
           <Select
             classNamePrefix="app-select"
             options={allQuantities}
-            defaultValue={this.props.selectedQuantity}
+            value={this.props.selectedQuantity}
             onChange={this.props.onSelectQuantity(type, id)}
             placeholder={"Select Quantity"}
           />
@@ -27,7 +27,7 @@ class AddonRow extends Component {
             classNamePrefix="app-select"
             options={addonsForType}
             onChange={this.props.onSelectAddon(type, id)}
-            defaultValue={this.props.selectedAddon}
+            value={this.props.selectedAddon}
             placeholder={`Choose a ${type && type.slice(0, -1)}`}
           />
         </div>
