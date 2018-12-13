@@ -1,6 +1,12 @@
 .app-section-3 {
   padding-top: 50px;
 
+  .rc-tabs-bar,
+  .rc-tabs-nav-container {
+    font-size: 12px;
+    line-height: 1;
+  }
+
   .rc-tabs-top {
     border: none;
     
@@ -10,17 +16,16 @@
     }
 
     .rc-tabs-nav {
-      border: 2px solid #efefef;
-      overflow: hidden;
-      border-radius: 100px;
-      background-color: #ffffff;
       z-index: 1;
+      overflow: hidden;
+      display: inline-block;
       position: relative;
       float: none;
-      padding: 5px 0;
-      box-sizing: border-box;
       margin: auto;
-      display: inline-block;
+      padding: 0;
+      border-radius: 100px;
+      border: 2px solid #efefef;
+      background-color: #ffffff;
 
       &-container {
         > div {
@@ -38,18 +43,29 @@
       }
     }
 
+    .rc-tabs-tab-next,
+    .rc-tabs-tab-prev {
+      display: none;
+    }
+
     .rc-tabs-bar {
       border: none;
     }
 
     .rc-tabs-tab {
-      width: 150px;
+      width: 120px;
       margin: 0;
+      padding: 16px 0;
+      font-size: 12px;
       text-transform: uppercase;
       text-align: center;
 
       &:hover {
         color: $color--brand--primary;
+      }
+
+      @include breakpoint(sm) {
+        width: 150px;
       }
 
       &-active {
