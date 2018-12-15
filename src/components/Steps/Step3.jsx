@@ -18,11 +18,7 @@ export default class Step3 extends Component {
       start: 0
     };
   }
-  componentDidMount() {
-    console.log(document.body.innerHTML);
-  }
   onChange = activeKey => {
-    console.log(`onChange ${activeKey}`);
     this.setState({
       activeKey
     });
@@ -45,8 +41,8 @@ export default class Step3 extends Component {
       Object.keys(row).map(key => {
         if (typeof row[key] === "number") {
           finalStats[key] !== undefined
-            ? (finalStats[key] = row[key])
-            : (finalStats[key] += row[key]);
+            ? (finalStats[key] += row[key])
+            : (finalStats[key] = row[key]);
         }
       });
     });

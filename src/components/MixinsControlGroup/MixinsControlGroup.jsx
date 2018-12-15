@@ -10,10 +10,9 @@ class MixinsControlGroup extends Component {
         id={`mixinsCtrlGroup__${_type}`}
         className={`mixins-controls-group--${_type} mixins-controls-group ${_type.indexOf(
           "liquids"
-        ) > -1 && "required"}`}
-      >
+        ) > -1 && "required"}`}>
         <div className="mixins-controls-header">
-          <div class="mixin-controls-header__graphic">
+          <div className="mixin-controls-header__graphic">
             <img
               src={`${this.props.baseUrl}/images/icons/icon-${_type}.png`}
               className="mixins-controls-header__img"
@@ -26,8 +25,7 @@ class MixinsControlGroup extends Component {
             type="button"
             className={`text-button ${
               _activeAddons.length < 1 ? "disabled" : ""
-            }`}
-          >
+            }`}>
             Edit
           </button>
         </div>
@@ -50,8 +48,7 @@ class MixinsControlGroup extends Component {
         ) : (
           <button
             className="button--add button--outline"
-            onClick={() => this.props.openModal(_type)}
-          >
+            onClick={() => this.props.openModal(_type)}>
             Add {_type}
           </button>
         )}
