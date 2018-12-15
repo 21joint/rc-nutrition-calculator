@@ -14,15 +14,18 @@ class Nav extends Component {
       steps.push(
         <li
           className={`progress-step-${i} ${isActive ? "active" : ""}`}
-          key={i}
-        >
+          key={i}>
           <button
             type="button"
             onClick={() => this.handleStepChange(i)}
             className={
-              this.props.selectedProduct === null && i > 1 ? "disabled" : ""
-            }
-          >
+              (this.props.selectedProduct === null && i > 1) ||
+              (this.props.activeAddons.liquids.length < 1 ||
+                (this.props.activeAddons.liquids.length === 1 &&
+                  !this.props.activeAddons.liquids[0].addon))
+                ? "disabled"
+                : ""
+            }>
             {i}. {this.props.steps[i - 1].title}
           </button>
         </li>
@@ -40,8 +43,7 @@ class Nav extends Component {
           ) : (
             <button
               onClick={() => this.props.goToStep(currentStep - 1)}
-              className="button--text app-back--button"
-            >
+              className="button--text app-back--button">
               <span className="btn-icon btn-icon--left">
                 <svg
                   version="1.1"
@@ -52,8 +54,7 @@ class Nav extends Component {
                   viewBox="0 0 63.336 63.336"
                   width="11px"
                   height="11px"
-                  xmlSpace="preserve"
-                >
+                  xmlSpace="preserve">
                   <path
                     fill="#f05a5c"
                     d="M14.924,34.879l30.822,27.938c0.383,0.348,0.864,0.519,1.344,0.519c0.545,0,1.087-0.222,1.482-0.657

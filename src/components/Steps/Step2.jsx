@@ -18,8 +18,12 @@ export default class Step2 extends Component {
       }
     };
   }
-  openModal = type => {
-    this.setState({ modal: { open: true, type: type } });
+
+  isTypeRequired = _type => {
+    return this.props.requiredType["type"] === _type;
+  };
+  openModal = _type => {
+    this.setState({ modal: { open: true, type: _type } });
   };
 
   afterOpenModal = () => {
@@ -51,29 +55,34 @@ export default class Step2 extends Component {
               <div className="nutrition-item--cals nutrition-item">
                 <div className="nutrition-item__label">Calories</div>
                 <div className="nutrition-item__value">
-                  {selectedProduct.stats.cals / selectedProduct.standard_servings}
+                  {selectedProduct.stats.cals /
+                    selectedProduct.standard_servings}
                 </div>
               </div>
               <div className="nutrition-item--fats nutrition-item">
                 <div className="nutrition-item__label">Fats</div>
                 <div className="nutrition-item__value">
-                  {selectedProduct.stats.fats / selectedProduct.standard_servings}
+                  {selectedProduct.stats.fats /
+                    selectedProduct.standard_servings}
                 </div>
               </div>
               <div className="nutrition-item--carbs nutrition-item">
                 <div className="nutrition-item--carbs__total">
                   <div className="nutrition-item__label">Total Carbs</div>
                   <div className="nutrition-item__value">
-                    {selectedProduct.stats.carbs / selectedProduct.standard_servings}
+                    {selectedProduct.stats.carbs /
+                      selectedProduct.standard_servings}
                   </div>
                 </div>
                 <div className="nutrition-item--carbs__breakdown">
                   <div className="carbs-breakdown-item">
-                    {selectedProduct.stats.fiber / selectedProduct.standard_servings}
+                    {selectedProduct.stats.fiber /
+                      selectedProduct.standard_servings}
                     <span>G Fiber</span>
                   </div>
                   <div className="carbs-breakdown-item">
-                    {selectedProduct.stats.sugar / selectedProduct.standard_servings}
+                    {selectedProduct.stats.sugar /
+                      selectedProduct.standard_servings}
                     <span>G Sugars</span>
                   </div>
                 </div>
@@ -81,7 +90,8 @@ export default class Step2 extends Component {
               <div className="nutrition-item--protein nutrition-item">
                 <div className="nutrition-item__label">Protein</div>
                 <div className="nutrition-item__value">
-                  {selectedProduct.stats.protein / selectedProduct.standard_servings}
+                  {selectedProduct.stats.protein /
+                    selectedProduct.standard_servings}
                 </div>
               </div>
             </div>
@@ -92,13 +102,13 @@ export default class Step2 extends Component {
             <h3>Now, Add Your Mixins</h3>
           </div>
           <div className="app-mixins-controls">
-            {Object.keys(this.props.allAddons).map((type, key) => {
+            {Object.keys(this.props.allAddons).map((_type, key) => {
               return (
                 <MixinsControlGroup
                   key={key}
-                  type={type}
-                  modalAddons={this.props.modalAddons[type]}
-                  activeAddons={this.props.activeAddons}
+                  type={_type}
+                  required={this.isTypeRequired(_type)}
+                  activeAddons={this.props.activeAddons[_type]}
                   openModal={this.openModal.bind(this)}
                   baseUrl={!devMode ? baseUrl : ""}
                 />

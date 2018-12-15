@@ -71,7 +71,8 @@ class App extends Component {
       {
         selected: {
           product: this.isProductSelected(product) ? null : product
-        }
+        },
+        dividedBy: product.standard_servings
       },
       function() {
         if (this.state.selected.product !== null) {
@@ -186,6 +187,7 @@ class App extends Component {
               selectedProduct={this.state.selected.product}
               steps={[Steps.Step1, Steps.Step2, Steps.Step3]}
               currentStep={this.state.currentStep}
+              activeAddons={this.state.activeAddons}
             />
           }
           onStepChange={this.handleStepChange}
@@ -210,7 +212,7 @@ class App extends Component {
             addNewAddonRow={this.addNewAddonRow}
             removeAddonRow={this.removeAddonRow}
             onViewBreakdown={this.onViewBreakdown}
-            requiredMixin={{ type: "liquids", min: 1 }}
+            requiredType={{ type: "liquids", min: 1 }}
           />
           <Steps.Step3
             currentStep={this.state.currentStep}

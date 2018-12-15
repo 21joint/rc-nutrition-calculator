@@ -48,6 +48,11 @@ export default class Step3 extends Component {
     });
 
     const PanelContent = ({ id, dividedBy }) => {
+      const valueFormatter = value => {
+        let res = (value * (1 / dividedBy)).toFixed(1);
+
+        return parseInt(res.split(".")[1], 10) !== 0 ? res : res.split(".")[0];
+      };
       return (
         <div key={id}>
           <div className="app-breakdown__details">
@@ -55,37 +60,35 @@ export default class Step3 extends Component {
               <div className="nutrition-item--cals nutrition-item">
                 <div className="nutrition-item__label">Calories</div>
                 <div className="nutrition-item__value">
-                  {(finalStats["cals"] * (1 / dividedBy)).toFixed(1)}
+                  {valueFormatter(finalStats["cals"])}
                 </div>
               </div>
               <div className="nutrition-item--fats nutrition-item">
                 <div className="nutrition-item__label">Fats</div>
                 <div className="nutrition-item__value">
-                  {(finalStats["fats"] * (1 / dividedBy)).toFixed(1)}
+                  {valueFormatter(finalStats["fats"])}
                 </div>
               </div>
               <div className="nutrition-item--carbs nutrition-item">
                 <div className="nutrition-item--carbs__total">
                   <div className="nutrition-item__label">Total Carbs</div>
                   <div className="nutrition-item__value">
-                    {(finalStats["carbs"] * (1 / dividedBy)).toFixed(1)}
+                    {valueFormatter(finalStats["carbs"])}
                   </div>
                 </div>
                 <div className="nutrition-item--carbs__breakdown">
                   <div className="carbs-breakdown-item">
-                    {(finalStats["fiber"] * (1 / dividedBy)).toFixed(1)}{" "}
-                    <span>G Fiber</span>
+                    {valueFormatter(finalStats["fiber"])} <span>G Fiber</span>
                   </div>
                   <div className="carbs-breakdown-item">
-                    {(finalStats["sugar"] * (1 / dividedBy)).toFixed(1)}{" "}
-                    <span>G Sugars</span>
+                    {valueFormatter(finalStats["sugar"])} <span>G Sugars</span>
                   </div>
                 </div>
               </div>
               <div className="nutrition-item--protein nutrition-item">
                 <div className="nutrition-item__label">Protein</div>
                 <div className="nutrition-item__value">
-                  {(finalStats["protein"] * (1 / dividedBy)).toFixed(1)}
+                  {valueFormatter(finalStats["protein"])}
                 </div>
               </div>
             </div>

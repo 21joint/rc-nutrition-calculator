@@ -3,14 +3,14 @@ import React, { Component } from "react";
 class MixinsControlGroup extends Component {
   render() {
     const _type = this.props.type;
-    const _activeAddons = this.props.activeAddons[_type];
+    const _activeAddons = this.props.activeAddons;
+    const _required = this.props.required;
 
     return (
       <div
         id={`mixinsCtrlGroup__${_type}`}
-        className={`mixins-controls-group--${_type} mixins-controls-group ${_type.indexOf(
-          "liquids"
-        ) > -1 && "required"}`}>
+        className={`mixins-controls-group--${_type} mixins-controls-group ${_required &&
+          "required"}`}>
         <div className="mixins-controls-header">
           <div className="mixin-controls-header__graphic">
             <img
@@ -24,7 +24,10 @@ class MixinsControlGroup extends Component {
             onClick={() => this.props.openModal(_type)}
             type="button"
             className={`text-button ${
-              _activeAddons.length < 1 ? "disabled" : ""
+              _activeAddons.length < 1 ||
+              (_activeAddons.length === 1 && _activeAddons[0].addon === null)
+                ? "disabled"
+                : ""
             }`}>
             Edit
           </button>
