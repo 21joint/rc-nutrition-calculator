@@ -51,6 +51,9 @@ export default class Step2 extends Component {
               {selectedProduct.title}
               <a href={selectedProduct.shop_url}>Shop Now</a>
             </h2>
+            <h3 class="product-details__serving-notice">
+              Nutrition per serving, based on {selectedProduct.standard_servings} servings
+            </h3>
             <div className="product-nutrition">
               <div className="nutrition-item--cals nutrition-item">
                 <div className="nutrition-item__label">Calories</div>

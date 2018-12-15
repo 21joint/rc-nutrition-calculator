@@ -33,11 +33,11 @@
     }
 
     h2 {
-      margin-bottom: $spacing--vert--lg;
+      margin-bottom: $spacing--vert--sm;
       text-align: center;
 
       @include breakpoint(md) {
-        margin: $spacing--vert--xs 0 $spacing--vert--md 0;
+        margin: 14px 0;
         text-align: left;
       }
 
@@ -53,6 +53,23 @@
         @include breakpoint(md) {
           display: inline-block;
         }
+      }
+    }
+
+    .product-details__serving-notice {
+      margin-bottom: $spacing--vert--lg;
+      font-weight: $weight--sans--regular;
+      text-transform: none;
+      letter-spacing: normal;
+      text-align: center;
+
+      @include breakpoint(md) {
+        margin-bottom: $spacing--vert--md;
+        text-align: left;
+      }
+
+      strong {
+        font-weight: $weight--sans--bold;
       }
     }
   }
