@@ -22,6 +22,7 @@
     min-width: 150px;
     margin-bottom: $spacing--vert--md;
     padding-left: 6%;
+    // color: red;
 
     @include breakpoint(xs) {
       @include flex(0, 1, 40%);
@@ -29,7 +30,7 @@
     }
 
     @include breakpoint(sm) {
-      @include flex(1, 1, auto);
+      @include flex(0, 1, auto);
       margin-bottom: 0;
       padding-left: 2%;
 

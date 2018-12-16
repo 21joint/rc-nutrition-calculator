@@ -73,4 +73,12 @@
       }
     }
   }
+
+  .product-nutrition {
+    .nutrition-item {
+      @include breakpoint(sm) {
+        @include flex(1, 1, auto);
+      }
+    }
+  }
 }
