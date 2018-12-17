@@ -41,7 +41,9 @@ export default class Step3 extends Component {
       Object.keys(row).map(key => {
         if (typeof row[key] === "number") {
           finalStats[key] !== undefined
-            ? (finalStats[key] += row[key])
+            ? (finalStats[key] +=
+                (row["source"] == "addon" ? row["quantity"].value : 1) *
+                row[key])
             : (finalStats[key] = row[key]);
         }
       });
