@@ -15,6 +15,7 @@
     "node-sass": "^4.10.0",
     "rc-tabs": "^9.5.7",
     "react": "16.5.2",
+    "react-animated-number": "0.4.4",
     "react-dom": "16.5.2",
     "react-modal": "3.6.1",
     "react-scripts": "2.0.3",
@@ -31,12 +32,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
   "devDependencies": {
     "gh-pages": "^2.0.1"
   }

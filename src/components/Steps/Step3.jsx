@@ -4,6 +4,7 @@ import Sortable from "react-sortablejs";
 import Tabs, { TabPane } from "rc-tabs";
 import TabContent from "rc-tabs/lib/SwipeableTabContent";
 import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
+import AnimatedNumber from "react-animated-number";
 import { name as packageName } from "../../../package.json";
 
 const devMode = process.env.NODE_ENV !== "production";
@@ -51,9 +52,18 @@ export default class Step3 extends Component {
 
     const PanelContent = ({ id, dividedBy }) => {
       const valueFormatter = value => {
-        let res = (value * (1 / dividedBy)).toFixed(1);
+        const res = (value * (1 / dividedBy)).toFixed(1);
+        const v =
+          parseInt(res.split(".")[1], 10) !== 0 ? res : res.split(".")[0];
 
-        return parseInt(res.split(".")[1], 10) !== 0 ? res : res.split(".")[0];
+        return (
+          <AnimatedNumber
+            component="text"
+            value={v}
+            duration={700}
+            stepPrecision={0}
+          />
+        );
       };
       return (
         <div key={id}>
