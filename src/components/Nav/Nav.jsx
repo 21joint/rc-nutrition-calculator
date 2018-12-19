@@ -77,8 +77,8 @@ class Nav extends Component {
             {currentStep === 1
               ? "Recipe Nutrition Calculator"
               : currentStep === 2
-              ? "What’s Your Recipe"
-              : "Your Nutrition Breakdown"}
+              ? "Recipe Nutrition Calculator"
+              : "Recipe Nutrition Calculator"}
           </h1>
         </div>
       </div>
