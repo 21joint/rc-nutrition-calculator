@@ -172,6 +172,11 @@ export default class Step3 extends Component {
             </form>
           </div>
         </div>
+
+        <div className="app-final-message">
+        <p>Please send requests &amp; suggestions to <a href="mailto:hi@ProteinBarMix.com">hi@ProteinBarMix.com</a>.</p>
+          <p>Our calculator is meant to be a general guide. We recommend apps like <a href="https://www.myfitnesspal.com/" rel="nofollow" target="_blank">MyFitnessPal</a> for more specific customization.</p>
+        </div>
       </section>
     );
   }
